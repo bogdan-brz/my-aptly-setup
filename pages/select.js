@@ -1,12 +1,19 @@
 import { Fragment } from "react";
 import SelectPage from "../components/pages/select/SelectPage";
+import { SelectionData } from "../utils/selectionData";
 
-const Selector = () => {
+const Selector = (props) => {
     return (
         <Fragment>
-            <SelectPage />
+            <SelectPage selectionData={props.selectionData} />
         </Fragment>
     );
+};
+
+export const getStaticProps = () => {
+    return {
+        props: { selectionData: SelectionData },
+    };
 };
 
 export default Selector;

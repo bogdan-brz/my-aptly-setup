@@ -1,0 +1,16 @@
+.selection {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+}
+
+.title {
+    font-size: 1.3rem;
+    text-decoration: underline;
+    margin: 0rem;
+}
