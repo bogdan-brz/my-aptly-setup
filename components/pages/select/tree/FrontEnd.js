@@ -3,11 +3,9 @@ import Selection from "../selection/Selection";
 import { useState } from "react";
 
 const FrontEnd = (props) => {
-    const [selectedFw, setSelectedFw] = useState(
-        props.selectionData.frameworks[0]
-    );
+    const [selectedFw, setSelectedFw] = useState(props.frameworks[0]);
     const [selectedSpecs, setSelectedSpecs] = useState([
-        props.selectionData.frameworks[0].specifics[0],
+        props.frameworks[0].specifics[0],
     ]);
     const selectFwHandler = (newFw) => {
         deselectAllSpecs();
@@ -35,10 +33,9 @@ const FrontEnd = (props) => {
     };
     return (
         <div className={styles.end}>
-            <button className={styles.button}>Front End Solutions</button>
             <Selection
                 title={"Framework"}
-                options={props.selectionData.frameworks}
+                options={props.frameworks}
                 singular={true}
                 onSelect={selectFwHandler}
                 onDeselect={deselectFwHandler}
@@ -48,7 +45,7 @@ const FrontEnd = (props) => {
                 title={"Specifics"}
                 options={
                     (selectedFw != null
-                        ? props.selectionData.frameworks.filter(
+                        ? props.frameworks.filter(
                               (fw) => fw.name == selectedFw.name
                           )[0].specifics
                         : []) || []

@@ -5,14 +5,18 @@ import { SelectionData } from "../utils/selectionData";
 const Selector = (props) => {
     return (
         <Fragment>
-            <SelectPage selectionData={props.selectionData} />
+            <SelectPage {...props} />
         </Fragment>
     );
 };
 
 export const getStaticProps = () => {
     return {
-        props: { selectionData: SelectionData },
+        props: {
+            frontEnd: SelectionData[0],
+            backEnd: SelectionData[1],
+            bothEnds: SelectionData[2],
+        },
     };
 };
 

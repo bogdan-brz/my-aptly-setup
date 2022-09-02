@@ -8,14 +8,3 @@
     flex-direction: row;
     align-items: flex-start;
 }
-
-.title {
-    font-size: 1.5rem;
-}
-
-.subtitle {
-    background-color: rgb(55, 137, 237);
-    color: white;
-    border-radius: 1.5rem;
-    padding: 0.5rem;
-}

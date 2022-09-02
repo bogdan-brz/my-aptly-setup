@@ -3,14 +3,12 @@ import Selection from "../selection/Selection";
 import { useState } from "react";
 
 const BackEnd = (props) => {
-    const [selectedLang, setSelectedLang] = useState(
-        props.selectionData.languages[0]
-    );
+    const [selectedLang, setSelectedLang] = useState(props.languages[0]);
     const [selectedFw, setSelectedFw] = useState(
-        props.selectionData.languages[0].frameworks[0]
+        props.languages[0].frameworks[0]
     );
     const [selectedSpecs, setSelectedSpecs] = useState([
-        props.selectionData.languages[0].frameworks[0].specifics[0],
+        props.languages[0].frameworks[0].specifics[0],
     ]);
     const selectLangHandler = (newLang) => {
         deselectAllSpecs();
@@ -58,10 +56,9 @@ const BackEnd = (props) => {
     return (
         <div className={styles.end}>
             <button onClick={checkHandler}>check</button>
-            <button className={styles.button}>Back End Solutions</button>
             <Selection
                 title={"Language"}
-                options={props.selectionData.languages}
+                options={props.languages}
                 singular={true}
                 onSelect={selectLangHandler}
                 onDeselect={deselectLangHandler}
@@ -71,7 +68,7 @@ const BackEnd = (props) => {
                 title={"Framework"}
                 options={
                     selectedLang != null
-                        ? props.selectionData.languages.filter(
+                        ? props.languages.filter(
                               (lang) => lang.name == selectedLang.name
                           )[0].frameworks
                         : []
@@ -85,7 +82,7 @@ const BackEnd = (props) => {
                 title={"Specifics"}
                 options={
                     selectedLang != null && selectedFw != null
-                        ? props.selectionData.languages
+                        ? props.languages
                               .filter(
                                   (lang) => lang.name == selectedLang.name
                               )[0]

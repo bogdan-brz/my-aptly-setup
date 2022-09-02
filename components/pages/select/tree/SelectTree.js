@@ -6,13 +6,10 @@ import styles from "./SelectTree.module.css";
 const SelectTree = (props) => {
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>
-                Create your <span className={styles.subtitle}>Setup</span>
-            </h1>
             <div className={styles.tree}>
-                <FrontEnd selectionData={props.selectionData[0]} />
-                <BackEnd selectionData={props.selectionData[1]} />
-                <BothEnds selectionData={props.selectionData[2]} />
+                {props.showFront && <FrontEnd {...props.frontEnd} />}
+                {props.showBack && <BackEnd {...props.backEnd} />}
+                {props.showBoth && <BothEnds {...props.bothEnds} />}
             </div>
         </div>
     );
