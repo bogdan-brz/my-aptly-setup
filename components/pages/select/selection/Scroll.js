@@ -7,7 +7,7 @@ const Scroll = (props) => {
             <div className={styles.scroll}>
                 {props.options.map((option, i) => (
                     <ScrollOption
-                        label={props.labels[1]}
+                        labels={props.labels}
                         selected={
                             props.selected != null &&
                             props.selected != [] &&
