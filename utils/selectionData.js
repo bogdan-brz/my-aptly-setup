@@ -6,9 +6,20 @@ export const SelectionData = [
                 subname: "Create React App",
                 description: `with no specs added it'll be a regular "npx create-react-app" folder structure, but with all the icon BS cleared out`,
                 specifics: [
-                    { name: "react-router-dom", description: "" },
-                    { name: "redux", description: "" },
-                    { name: "react-redux + @reduxjs/toolkit", description: "" },
+                    {
+                        name: "react-router-dom",
+                        description:
+                            "basic router implementation with a few dummy routes",
+                    },
+                    {
+                        name: "redux",
+                        description:
+                            "a redux store and one implementation file",
+                    },
+                    {
+                        name: "react-redux + @reduxjs/toolkit",
+                        description: "redux store and an auth slice",
+                    },
                 ],
             },
             { name: "AngularJs", specifics: [] },

@@ -1,3 +1,5 @@
+import Arrows1 from "./arrows/Arrows1";
+import Arrows2 from "./arrows/Arrows2";
 import styles from "./EndSelect.module.css";
 
 const EndSelect = (props) => {
@@ -16,17 +18,15 @@ const EndSelect = (props) => {
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>I need a setup that is...</h2>
-            <div className={styles.arrows}>
-                <div className={`${styles.arrow} ${styles.a1}`}></div>
-                <div className={`${styles.arrow} ${styles.a2}`}></div>
-                <div className={`${styles.arrow} ${styles.a3}`}></div>
-            </div>
+            <Arrows1 selected={props.selected} />
             <div className={styles.tree}>
                 <div className={styles.option}>
                     <button
                         onClick={frontClickHandler}
                         className={`${styles.button} ${
-                            props.selected == "front" && styles.selected
+                            props.selected == "front"
+                                ? styles.selected
+                                : props.selected != "" && styles.notselected
                         }`}
                     >
                         frontend only
@@ -37,7 +37,9 @@ const EndSelect = (props) => {
                     <button
                         onClick={backClickHandler}
                         className={`${styles.button} ${
-                            props.selected == "back" && styles.selected
+                            props.selected == "back"
+                                ? styles.selected
+                                : props.selected != "" && styles.notselected
                         }`}
                     >
                         backend only
@@ -45,18 +47,26 @@ const EndSelect = (props) => {
                     <span className={styles.description}>ex. NodeJs</span>
                 </div>
                 <div className={styles.option}>
-                    <h3 className={styles.subtitle}>both ends as...</h3>
-                    <div className={styles.arrows}>
-                        <div className={`${styles.arrow} ${styles.a4}`}></div>
-                        <div className={`${styles.arrow} ${styles.a5}`}></div>
-                    </div>
+                    <h3
+                        className={`${styles.subtitle} ${
+                            props.selected != "separate" &&
+                            props.selected != "together" &&
+                            props.selected != "" &&
+                            styles.notselected
+                        }`}
+                    >
+                        both ends as...
+                    </h3>
+                    <Arrows2 selected={props.selected} />
                     <div className={styles.tree}>
                         <div className={styles.option}>
                             <button
                                 onClick={separateClickHandler}
                                 className={`${styles.button} ${
-                                    props.selected == "separate" &&
-                                    styles.selected
+                                    props.selected == "separate"
+                                        ? styles.selected
+                                        : props.selected != "" &&
+                                          styles.notselected
                                 }`}
                             >
                                 separate frameworks
@@ -69,8 +79,10 @@ const EndSelect = (props) => {
                             <button
                                 onClick={togetherClickHandler}
                                 className={`${styles.button} ${
-                                    props.selected == "together" &&
-                                    styles.selected
+                                    props.selected == "together"
+                                        ? styles.selected
+                                        : props.selected != "" &&
+                                          styles.notselected
                                 }`}
                             >
                                 one framework

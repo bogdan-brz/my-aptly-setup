@@ -1,59 +1,63 @@
 import styles from "./EndStyles.module.css";
 import Selection from "../selection/Selection";
-import { useState } from "react";
+import { useReducer } from "react";
 
+const selectionReducer = (state, action) => {
+    let _state = { ...state };
+    if (action.type == "select-fw") {
+        if (
+            !_state.selectedFw ||
+            _state.selectedFw.name != action.payload.name
+        ) {
+            _state.selectedFw = action.payload;
+            _state.specOptions = _state.fwOptions.filter(
+                (fw) => fw.name == _state.selectedFw.name
+            )[0].specifics;
+        } else {
+            _state.selectedFw = null;
+            _state.specOptions = [];
+        }
+        _state.selectedSpecs = [];
+    } else if (action.type == "select-spec") {
+        if (
+            _state.selectedSpecs.filter(
+                (_spec) => _spec.name == action.payload.name
+            ).length == 1
+        ) {
+            _state.selectedSpecs = _state.selectedSpecs.filter(
+                (_spec) => _spec.name != action.payload.name
+            );
+        } else {
+            _state.selectedSpecs.push(action.payload);
+        }
+    }
+    return _state;
+};
 const FrontEnd = (props) => {
-    const [selectedFw, setSelectedFw] = useState(props.frameworks[0]);
-    const [selectedSpecs, setSelectedSpecs] = useState([
-        props.frameworks[0].specifics[0],
-    ]);
-    const selectFwHandler = (newFw) => {
-        deselectAllSpecs();
-        setSelectedFw(newFw);
-    };
-    const deselectFwHandler = () => {
-        deselectAllSpecs();
-        setSelectedFw(null);
-    };
-    const selectSpecHandler = (newSpec) => {
-        setSelectedSpecs((specs) => {
-            let _specs = specs;
-            _specs.push(newSpec);
-            return _specs;
-        });
-    };
-    const deselectSpecHandler = (specToRmv) => {
-        setSelectedSpecs((specs) => {
-            let _specs = specs.filter((_spec) => _spec.name != specToRmv.name);
-            return _specs;
-        });
-    };
-    const deselectAllSpecs = () => {
-        setSelectedSpecs([]);
-    };
+    const [selectionState, dispatchSelection] = useReducer(selectionReducer, {
+        selectedFw: null,
+        selectedSpecs: [],
+        fwOptions: props.frameworks,
+        specOptions: [],
+    });
     return (
         <div className={styles.end}>
+            <h3 className={styles.title}>Frontend:</h3>
             <Selection
-                title={"Framework"}
-                options={props.frameworks}
-                singular={true}
-                onSelect={selectFwHandler}
-                onDeselect={deselectFwHandler}
-                selectedOption={selectedFw}
+                labels={["Framework", "fw", ""]}
+                options={selectionState.fwOptions}
+                isSingular={true}
+                onSelect={dispatchSelection}
+                selected={selectionState.selectedFw}
             />
             <Selection
                 title={"Specifics"}
-                options={
-                    (selectedFw != null
-                        ? props.frameworks.filter(
-                              (fw) => fw.name == selectedFw.name
-                          )[0].specifics
-                        : []) || []
-                }
-                singular={false}
-                onSelect={selectSpecHandler}
-                onDeselect={deselectSpecHandler}
-                selectedOption={selectedSpecs}
+                label={"spec"}
+                labels={["Specifics", "spec", "a framework"]}
+                options={selectionState.specOptions}
+                isSingular={false}
+                onSelect={dispatchSelection}
+                selected={selectionState.selectedSpecs}
             />
         </div>
     );

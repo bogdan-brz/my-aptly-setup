@@ -1,12 +1,13 @@
 import { Fragment } from "react";
+import { SelectContextProvider } from "../components/pages/context/select-context";
 import SelectPage from "../components/pages/select/SelectPage";
 import { SelectionData } from "../utils/selectionData";
 
 const Selector = (props) => {
     return (
-        <Fragment>
+        <SelectContextProvider>
             <SelectPage {...props} />
-        </Fragment>
+        </SelectContextProvider>
     );
 };
 

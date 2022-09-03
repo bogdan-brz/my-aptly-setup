@@ -18,7 +18,8 @@ a {
 html,
 body,
 #__next {
-    height: 100%;
+    /* height: calc(100% - 3rem); */
+    /* height: 100vh; */
 }
 
 @media (prefers-color-scheme: dark) {

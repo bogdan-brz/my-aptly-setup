@@ -30,9 +30,7 @@ const endReducer = (state, action) => {
         _state.showBack = false;
         _state.showBoth = false;
     }
-    console.log(_state);
     return _state;
-    return { ..._state };
 };
 const SelectPage = (props) => {
     const [endState, dispatch] = useReducer(endReducer, {
@@ -44,6 +42,9 @@ const SelectPage = (props) => {
     return (
         <div className={styles.page}>
             <SearchBar />
+            <label className={styles.label}>
+                ... or use the following chart
+            </label>
             <EndSelect selected={endState.selectedEnd} onSelect={dispatch} />
             <SelectTree
                 showFront={endState.showFront}

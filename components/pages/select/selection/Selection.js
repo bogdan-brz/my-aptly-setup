@@ -5,20 +5,22 @@ import styles from "./Selection.module.css";
 const Selection = (props) => {
     return (
         <div className={styles.selection}>
-            <div className={styles.column}>
-                <h5 className={styles.title}>{props.title}</h5>
+            <h5 className={styles.title}>{props.labels[0]}</h5>
+            <div className={styles.row}>
                 <Scroll
-                    singular={props.singular}
+                    isSingular={props.isSingular}
                     onSelect={props.onSelect}
-                    onDeselect={props.onDeselect}
                     options={props.options}
-                    selectedOption={props.selectedOption}
+                    selected={props.selected}
+                    labels={props.labels}
                 />
-            </div>
-            <div className={styles.column}>
                 <Description
-                    singular={props.singular}
-                    description={props.descriptionList}
+                    somethingSelected={
+                        (props.isSingular && props.selected != null) ||
+                        (!props.isSingular && props.selected.length != 0)
+                    }
+                    isSingular={props.isSingular}
+                    toDescribe={props.selected}
                 />
             </div>
         </div>

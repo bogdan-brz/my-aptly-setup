@@ -2,11 +2,16 @@ import styles from "./ScrollOption.module.css";
 
 const ScrollOption = (props) => {
     const clickHandler = () => {
-        if (props.selected) props.onDeselect();
-        else props.onSelect(props.option);
+        props.onSelect({
+            type: `select-${props.label}`,
+            payload: props.option,
+        });
     };
     return (
-        <div className={styles.option} onClick={clickHandler}>
+        <div
+            className={`${styles.option} ${props.selected && styles.selected}`}
+            onClick={clickHandler}
+        >
             {props.option.name}
         </div>
     );

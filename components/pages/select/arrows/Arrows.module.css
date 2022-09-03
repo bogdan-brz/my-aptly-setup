@@ -1,0 +1,47 @@
+.arrows {
+    width: 100%;
+    padding-top: 0.25rem;
+}
+
+.arrow {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    height: 4px;
+    border-top: 4px dotted rgb(70, 70, 70);
+    transform: rotate(90deg);
+    transition: 0.3s;
+}
+
+.a1 {
+    width: 40px;
+    left: 11%;
+    top: 0;
+}
+
+.a2 {
+    width: 40px;
+    left: 36%;
+    top: -4px;
+}
+
+.a3 {
+    width: 40px;
+    left: 71%;
+    top: -8px;
+}
+
+.a4 {
+    width: 34px;
+    left: 21%;
+    top: 0;
+}
+
+.a5 {
+    width: 34px;
+    left: 71%;
+    top: -4px;
+}
+
+.notselected {
+    border-top: 4px dotted rgb(188, 188, 188);
+}

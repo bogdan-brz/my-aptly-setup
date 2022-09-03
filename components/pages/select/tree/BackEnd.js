@@ -1,100 +1,88 @@
 import styles from "./EndStyles.module.css";
 import Selection from "../selection/Selection";
-import { useState } from "react";
+import { useReducer } from "react";
+
+const selectionReducer = (state, action) => {
+    let _state = { ...state };
+    if (action.type == "select-lang") {
+        if (
+            !state.selectedLang ||
+            _state.selectedLang.name != action.payload.name
+        ) {
+            _state.selectedLang = action.payload;
+            _state.fwOptions = _state.langOptions.filter(
+                (lang) => lang.name == _state.selectedLang.name
+            )[0].frameworks;
+        } else {
+            _state.selectedLang = null;
+            _state.fwOptions = [];
+        }
+        _state.selectedFw = null;
+        _state.selectedSpecs = [];
+        _state.specOptions = [];
+    }
+    if (action.type == "select-fw") {
+        if (
+            !_state.selectedFw ||
+            _state.selectedFw.name != action.payload.name
+        ) {
+            _state.selectedFw = action.payload;
+            _state.specOptions = _state.fwOptions.filter(
+                (fw) => fw.name == _state.selectedFw.name
+            )[0].specifics;
+        } else {
+            _state.selectedFw = null;
+            _state.specOptions = [];
+        }
+        _state.selectedSpecs = [];
+    } else if (action.type == "select-spec") {
+        if (
+            _state.selectedSpecs.filter(
+                (_spec) => _spec.name == action.payload.name
+            ).length == 1
+        ) {
+            _state.selectedSpecs = _state.selectedSpecs.filter(
+                (_spec) => _spec.name != action.payload.name
+            );
+        } else {
+            _state.selectedSpecs.push(action.payload);
+        }
+    }
+    return _state;
+};
 
 const BackEnd = (props) => {
-    const [selectedLang, setSelectedLang] = useState(props.languages[0]);
-    const [selectedFw, setSelectedFw] = useState(
-        props.languages[0].frameworks[0]
-    );
-    const [selectedSpecs, setSelectedSpecs] = useState([
-        props.languages[0].frameworks[0].specifics[0],
-    ]);
-    const selectLangHandler = (newLang) => {
-        deselectAllSpecs();
-        deselectFwHandler();
-        setSelectedLang(newLang);
-    };
-    const deselectLangHandler = () => {
-        deselectAllSpecs();
-        deselectFwHandler();
-        setSelectedLang(null);
-    };
-    const selectFwHandler = (newFw) => {
-        deselectAllSpecs();
-        setSelectedFw(newFw);
-    };
-    const deselectFwHandler = () => {
-        deselectAllSpecs();
-        setSelectedFw(null);
-    };
-    const selectSpecHandler = (newSpec) => {
-        setSelectedSpecs((specs) => {
-            let _specs = specs;
-            _specs.push(newSpec);
-            return _specs;
-        });
-    };
-    const deselectSpecHandler = (specToRmv) => {
-        setSelectedSpecs((specs) => {
-            let _specs = specs.filter((_spec) => _spec.name != specToRmv.name);
-            return _specs;
-        });
-    };
-    const deselectAllSpecs = () => {
-        setSelectedSpecs([]);
-    };
-    const checkHandler = () => {
-        console.log("==========================");
-        console.log("selected language");
-        console.log(selectedLang);
-        console.log("selected framework");
-        console.log(selectedFw);
-        console.log("selected soecifics");
-        console.log(selectedSpecs);
-    };
+    const [selectionState, dispatchSelection] = useReducer(selectionReducer, {
+        selectedLang: null,
+        selectedFw: null,
+        selectedSpecs: [],
+        langOptions: props.languages,
+        fwOptions: [],
+        specOptions: [],
+    });
     return (
         <div className={styles.end}>
-            <button onClick={checkHandler}>check</button>
+            <h3 className={styles.title}>Backend:</h3>
             <Selection
-                title={"Language"}
-                options={props.languages}
-                singular={true}
-                onSelect={selectLangHandler}
-                onDeselect={deselectLangHandler}
-                selectedOption={selectedLang}
+                labels={["Language", "lang", ""]}
+                options={selectionState.langOptions}
+                isSingular={true}
+                onSelect={dispatchSelection}
+                selected={selectionState.selectedLang}
             />
             <Selection
-                title={"Framework"}
-                options={
-                    selectedLang != null
-                        ? props.languages.filter(
-                              (lang) => lang.name == selectedLang.name
-                          )[0].frameworks
-                        : []
-                }
-                singular={true}
-                onSelect={selectFwHandler}
-                onDeselect={deselectFwHandler}
-                selectedOption={selectedFw}
+                labels={["Framework", "fw", "a language"]}
+                options={selectionState.fwOptions}
+                isSingular={true}
+                onSelect={dispatchSelection}
+                selected={selectionState.selectedFw}
             />
             <Selection
-                title={"Specifics"}
-                options={
-                    selectedLang != null && selectedFw != null
-                        ? props.languages
-                              .filter(
-                                  (lang) => lang.name == selectedLang.name
-                              )[0]
-                              .frameworks.filter(
-                                  (fw) => fw.name == selectedFw.name
-                              )[0].specifics
-                        : []
-                }
-                singular={false}
-                onSelect={selectSpecHandler}
-                onDeselect={deselectSpecHandler}
-                selectedOption={selectedSpecs}
+                labels={["Specifics", "spec", "a framework"]}
+                options={selectionState.specOptions}
+                isSingular={false}
+                onSelect={dispatchSelection}
+                selected={selectionState.selectedSpecs}
             />
         </div>
     );
