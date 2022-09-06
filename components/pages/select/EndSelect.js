@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import SelectContext from "../context/select-context";
+import SelectContext from "./context/select-context";
 import Arrows1 from "./arrows/Arrows1";
 import Arrows2 from "./arrows/Arrows2";
 import styles from "./EndSelect.module.css";

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import SelectContext from "../../context/select-context";
+import SelectContext from "../context/select-context";
 import BackEnd from "./BackEnd";
 import BothEnds from "./BothEnds";
 import FrontEnd from "./FrontEnd";

@@ -1,38 +1,42 @@
-export const SelectionData = [
-    {
+export const SelectionTreeData = {
+    frontEnd: {
         frameworks: [
             {
                 name: "ReactJs",
-                subname: "Create React App",
-                description: `with no specs added it'll be a regular "npx create-react-app" folder structure, but with all the icon BS cleared out`,
+                short: "react",
+                description: `with no specs added it'll be a regular "npx create-react-app" folder structure, but with all the icons cleared out`,
                 specifics: [
                     {
                         name: "react-router-dom",
                         description:
                             "basic router implementation with a few dummy routes",
+                        short: "react-dom",
                     },
                     {
                         name: "redux",
                         description:
                             "a redux store and one implementation file",
+                        short: "reg-redux",
                     },
                     {
                         name: "react-redux + @reduxjs/toolkit",
                         description: "redux store and an auth slice",
+                        short: "react-redux-toolkit",
                     },
                 ],
             },
-            { name: "AngularJs", specifics: [] },
-            { name: "VueJs", specifics: [] },
+            { name: "AngularJs", short: "angular", specifics: [] },
+            { name: "VueJs", short: "vue", specifics: [] },
         ],
     },
-    {
+    backEnd: {
         languages: [
             {
                 name: "NodeJs",
                 frameworks: [
                     {
                         name: "ExpressJs",
+                        short: "express",
                         description: `with no specs added it'll be a "Hello World" single GET route server `,
                         specifics: [
                             {
@@ -43,7 +47,7 @@ export const SelectionData = [
                             { name: "Passport", description: "auth" },
                         ],
                     },
-                    { name: "Koa", specifics: [] },
+                    { name: "Koa", short: "koa", specifics: [] },
                 ],
             },
             {
@@ -69,7 +73,7 @@ export const SelectionData = [
             },
         ],
     },
-    {
+    bothEnds: {
         frameworks: [
             {
                 name: "NextJs",
@@ -81,4 +85,4 @@ export const SelectionData = [
             { name: "Django", specifics: [] },
         ],
     },
-];
+};
