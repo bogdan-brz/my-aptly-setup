@@ -5,39 +5,36 @@ export const SelectionTreeData = {
                 name: "ReactJs",
                 available: true,
                 short: "react",
-                description: `with no specs added it'll be a regular "npx create-react-app" folder structure, but with all the icons cleared out`,
-                specifics: [
+                description:
+                    "with no specific setup selected, it's a create-react-app setup without React icons",
+                setups: [
                     {
-                        name: "react-router-dom-v6",
-                        available: true,
+                        name: "basic routing setup with v6",
+                        dependencies: "react-router-dom(v6)",
                         description:
-                            "basic router implementation with a few dummy routes",
+                            "simple implementation with a Router, Navbar with Navlinks, and two dummy pages",
                         short: "react-dom-v6",
-                        // addOns: ["simple navbar"],
-                        incompatibleWith: ["react-dom-v5"],
                     },
                     {
-                        name: "react-router-dom-v5",
-                        available: true,
+                        name: "basic routing setup with v5",
+                        dependencies: "react-router-dom(v5)",
                         description:
-                            "basic router implementation with a few dummy routes",
+                            "simple implementation with a Router, Navbar with Navlinks, and two dummy pages",
                         short: "react-dom-v5",
-                        incompatibleWith: ["react-dom-v6"],
                     },
                     {
-                        name: "redux",
-                        available: true,
+                        name: "a basic redux implementation",
+                        dependencies: "redux, react-redux",
                         description:
-                            "a redux store and one implementation file",
+                            "a redux store, and dummy home page pulling from the store",
                         short: "reg-redux",
-                        incompatibleWith: ["react-redux-toolkit"],
                     },
                     {
-                        name: "react-redux + @reduxjs/toolkit",
-                        available: true,
-                        description: "redux store and an auth slice",
+                        name: "a basic redux toolkit implementation",
+                        dependencies: "react-redux, @reduxjs/toolkit",
+                        description:
+                            "a redux store, and dummy home page pulling from the store",
                         short: "react-redux-toolkit",
-                        incompatibleWith: ["reg-redux"],
                     },
                 ],
             },
@@ -45,9 +42,9 @@ export const SelectionTreeData = {
                 name: "AngularJs",
                 available: true,
                 short: "angular",
-                specifics: [],
+                setups: [],
             },
-            { name: "VueJs", available: true, short: "vue", specifics: [] },
+            { name: "VueJs", available: true, short: "vue", setups: [] },
         ],
     },
     backEnd: {
@@ -61,24 +58,18 @@ export const SelectionTreeData = {
                         available: true,
                         short: "express",
                         description: `with no specs added it'll be a "Hello World" single GET route server `,
-                        specifics: [
+                        setups: [
                             {
                                 name: "express-router",
-                                available: true,
                                 description: "Basic router setup",
-                                incompatibleWith: [],
                             },
                             {
                                 name: "Mocha",
-                                available: true,
                                 description: "testing/debug",
-                                incompatibleWith: [],
                             },
                             {
                                 name: "Passport",
-                                available: true,
                                 description: "auth",
-                                incompatibleWith: [],
                             },
                         ],
                     },
@@ -86,31 +77,31 @@ export const SelectionTreeData = {
                         name: "Koa",
                         available: true,
                         short: "koa",
-                        specifics: [],
+                        setups: [],
                     },
                 ],
             },
             {
                 name: "Python",
                 frameworks: [
-                    { name: "Flask", specifics: [] },
-                    { name: "CherryPy", specifics: [] },
+                    { name: "Flask", setups: [] },
+                    { name: "CherryPy", setups: [] },
                 ],
                 available: false,
             },
             // {
             //     name: "Ruby",
             //     frameworks: [
-            //         { name: "Ruby on Rails", specifics: [] },
-            //         { name: "Sinatra", specifics: [] },
+            //         { name: "Ruby on Rails", setups: [] },
+            //         { name: "Sinatra", setups: [] },
             //     ],
             //     available: false,
             // },
             // {
             //     name: "Java",
             //     frameworks: [
-            //         { name: "Spring", specifics: [] },
-            //         { name: "Struts", specifics: [] },
+            //         { name: "Spring", setups: [] },
+            //         { name: "Struts", setups: [] },
             //     ],
             //     available: false,
             // },
@@ -120,21 +111,19 @@ export const SelectionTreeData = {
         frameworks: [
             {
                 name: "NextJs",
-                specifics: [
+                setups: [
                     {
                         name: "redux store",
                         description: "",
-                        incompatibleWith: [],
                     },
                     {
                         name: "react-redux + @reduxjs/toolkit",
                         description: "",
-                        incompatibleWith: [],
                     },
                 ],
                 available: true,
             },
-            { name: "Django", specifics: [], available: false },
+            { name: "Django", setups: [], available: false },
         ],
     },
 };

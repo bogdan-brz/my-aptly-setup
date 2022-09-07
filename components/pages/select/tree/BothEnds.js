@@ -11,16 +11,16 @@ const BothEnds = () => {
             <Selection
                 labels={["Framework", "fw", "", "both"]}
                 options={ctx.bothFwOptions}
-                isSingular={true}
+                isBranchEnd={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.bothSelectedFw}
             />
             <Selection
-                labels={["Specifics", "spec", "", "both"]}
-                options={ctx.bothSpecOptions}
-                isSingular={false}
+                labels={["Setups", "setup", "", "both"]}
+                options={ctx.bothSetupOptions}
+                isBranchEnd={true}
                 onSelect={ctx.dispatchSelect}
-                selected={ctx.bothSelectedSpecs}
+                selected={ctx.bothSelectedSetup}
             />
         </div>
     );

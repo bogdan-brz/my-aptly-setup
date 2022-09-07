@@ -10,13 +10,9 @@ const Scroll = (props) => {
                         labels={props.labels}
                         selected={
                             props.selected != null &&
-                            props.selected != [] &&
-                            (props.isSingular
-                                ? props.selected.name == option.name
-                                : props.selected.filter(
-                                      (el) => el.name == option.name
-                                  ).length == 1)
+                            props.selected.name == option.name
                         }
+                        isBranchEnd={props.isBranchEnd}
                         onSelect={props.onSelect}
                         key={i}
                         option={option}
@@ -28,7 +24,7 @@ const Scroll = (props) => {
                     </div>
                 )}
             </div>
-            <div className={styles.fadeBox}></div>
+            {/* <div className={styles.fadeBox}></div> */}
         </div>
     );
 };

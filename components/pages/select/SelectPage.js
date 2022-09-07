@@ -21,12 +21,7 @@ const SelectPage = (props) => {
             <button onClick={testHandle}>test context</button>
             {ctx.showFront && ctx.frontSelectedFw != null && (
                 <a
-                    href={`/api/download?end=front&fw=${
-                        ctx.frontSelectedFw.short
-                    }&specs=${ctx.frontSelectedSpecs.map(
-                        (spec) => spec.short
-                    )}`}
-                >
+                    href={`/api/download?end=front&fw=${ctx.frontSelectedFw.short}&setup=${ctx.frontSelectedSetup}`}>
                     download
                 </a>
             )}

@@ -11,17 +11,17 @@ const FrontEnd = () => {
             <Selection
                 labels={["Framework", "fw", "", "front"]}
                 options={ctx.frontFwOptions}
-                isSingular={true}
+                isBranchEnd={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.frontSelectedFw}
             />
             <Selection
-                title={"Specifics"}
-                labels={["Specifics", "spec", "a framework", "front"]}
-                options={ctx.frontSpecOptions}
-                isSingular={false}
+                title={"Setups"}
+                labels={["Setups", "setup", "a framework", "front"]}
+                options={ctx.frontSetupOptions}
+                isBranchEnd={true}
                 onSelect={ctx.dispatchSelect}
-                selected={ctx.frontSelectedSpecs}
+                selected={ctx.frontSelectedSetup}
             />
         </div>
     );

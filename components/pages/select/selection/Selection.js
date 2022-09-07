@@ -8,18 +8,18 @@ const Selection = (props) => {
             <h5 className={styles.title}>{props.labels[0]}</h5>
             <div className={styles.row}>
                 <Scroll
-                    isSingular={props.isSingular}
+                    isBranchEnd={props.isBranchEnd}
                     onSelect={props.onSelect}
                     options={props.options}
                     selected={props.selected}
                     labels={props.labels}
                 />
                 <Description
+                    type={props.labels[1]}
                     somethingSelected={
-                        (props.isSingular && props.selected != null) ||
-                        (!props.isSingular && props.selected.length != 0)
+                        props.isBranchEnd && props.selected != null
                     }
-                    isSingular={props.isSingular}
+                    isBranchEnd={props.isBranchEnd}
                     toDescribe={props.selected}
                 />
             </div>

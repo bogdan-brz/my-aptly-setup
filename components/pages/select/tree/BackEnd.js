@@ -11,23 +11,23 @@ const BackEnd = () => {
             <Selection
                 labels={["Language", "lang", "", "back"]}
                 options={ctx.backLangOptions}
-                isSingular={true}
+                isBranchEnd={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.backSelectedLang}
             />
             <Selection
                 labels={["Framework", "fw", "a language", "back"]}
                 options={ctx.backFwOptions}
-                isSingular={true}
+                isBranchEnd={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.backSelectedFw}
             />
             <Selection
-                labels={["Specifics", "spec", "a framework", "back"]}
-                options={ctx.backSpecOptions}
-                isSingular={false}
+                labels={["Setups", "setup", "a framework", "back"]}
+                options={ctx.backSetupOptions}
+                isBranchEnd={true}
                 onSelect={ctx.dispatchSelect}
-                selected={ctx.backSelectedSpecs}
+                selected={ctx.backSelectedSetup}
             />
         </div>
     );
