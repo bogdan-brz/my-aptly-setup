@@ -1,5 +1,5 @@
 import FrameworkPage from "../../components/pages/docs/FrameworkPage";
-import { FrameworkDetails } from "../../data/detailedFrameworkData";
+import { FrameworkDetails } from "../../data/documentationData";
 
 const Framework = (props) => {
     return <FrameworkPage {...props} />;

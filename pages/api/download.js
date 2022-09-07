@@ -1,13 +1,9 @@
 import { findPackageDir, sendFileForDownload } from "../../utils/fsHelpers";
 
 const handler = async (req, res) => {
-    const { end, lang, fw } = req.query;
-    let specs = req.query.specs.split(",");
-    if (specs[0] == "") specs = [];
-    const packagePath = findPackageDir(end, lang, fw, specs);
-    // if (end == "front" && fw == "react" && specs.length == 0) {
+    const { fwshort, setupid } = req.query;
+    const packagePath = findPackageDir(fwshort, setupid);
     await sendFileForDownload(packagePath, res, () => {});
-    // }
 };
 
 export default handler;

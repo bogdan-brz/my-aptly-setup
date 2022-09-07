@@ -13,3 +13,27 @@
     flex-direction: column;
     align-items: flex-start;
 }
+
+.listItem {
+    color: rgb(0, 0, 0);
+    margin: 0.5rem;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.link {
+    color: rgb(74, 74, 233);
+    text-decoration: underline;
+}
+
+.downloadLink {
+    font-size: 1.1rem;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.downloadLink:hover {
+    color: rgb(64, 64, 64);
+}

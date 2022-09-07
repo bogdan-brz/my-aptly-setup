@@ -4,117 +4,140 @@ import styles from "./SideBar.module.css";
 
 const SideBar = () => {
     const router = useRouter();
-    console.log(router.query);
     return (
         <div className={styles.sidebar}>
-            <h4>Front end frameworks:</h4>
-            <ul>
-                <li
+            <h4 className={styles.title}>Front end frameworks</h4>
+            <div className={styles.list}>
+                <div
                     className={`${styles.listItem} ${
                         router.query.framework == "react" && styles.active
-                    }`}
-                >
-                    <Link href="/docs/react">Reactjs</Link>
-                </li>
-                <li
+                    }`}>
+                    <span className={styles.innerListItem}>
+                        - <Link href="/docs/react">Reactjs</Link>
+                    </span>
+                </div>
+                <div
                     className={`${styles.listItem} ${
                         router.query.framework == "angular" && styles.active
-                    }`}
-                >
-                    <Link href="/docs/angular">Angularjs</Link>
-                </li>
-                <li
+                    }`}>
+                    <span className={styles.innerListItem}>
+                        - <Link href="/docs/angular">Angularjs</Link>
+                    </span>
+                </div>
+                <div
                     className={`${styles.listItem} ${
                         router.query.framework == "vue" && styles.active
-                    }`}
-                >
-                    <Link href="/docs/vue">Vuejs</Link>
-                </li>
-            </ul>
-            <h4>Back end frameworks by language</h4>
-            <ul>
-                <li>
-                    <h5>Nodejs</h5>
-                    <ul>
+                    }`}>
+                    <span className={styles.innerListItem}>
+                        - <Link href="/docs/vue">Vuejs</Link>
+                    </span>
+                </div>
+            </div>
+            <h4 className={styles.title}>Back end frameworks</h4>
+            <div className={styles.list}>
+                <div className={styles.langList}>
+                    <h5 className={styles.subTitle}>Nodejs</h5>
+                    <div className={styles.list}>
+                        <div
+                            className={`${styles.listItem} ${
+                                router.query.framework == "angular" &&
+                                styles.active
+                            }`}>
+                            <span className={styles.innerListItem}>
+                                - <Link href="/docs/express">ExpressJs</Link>
+                            </span>
+                        </div>
+                        <div
+                            className={`${styles.listItem} ${
+                                router.query.framework == "angular" &&
+                                styles.active
+                            }`}>
+                            <span className={styles.innerListItem}>
+                                - <Link href="/docs/koa">Koa</Link>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.langList}>
+                    <h5 className={styles.subTitle + " " + styles.comingSoon}>
+                        Python
+                    </h5>
+                    <span className={styles.comingSoon}>coming soon</span>
+                    {/* <div className={styles.list}>
                         <li
                             className={`${styles.listItem} ${
                                 router.query.framework == "angular" &&
                                 styles.active
                             }`}
                         >
-                            <Link href="/docs/express">ExpressJs</Link>
-                        </li>
+                        <span className={styles.innerListItem}>    
+                        - <Link href="/docs/flask">Flask</Link>
+         </span>
+                        </div>
                         <li
                             className={`${styles.listItem} ${
                                 router.query.framework == "angular" &&
                                 styles.active
                             }`}
                         >
-                            <Link href="/docs/koa">Koa</Link>
-                        </li>
-                    </ul>
-                </li>
+                        <span className={styles.innerListItem}>    
+                        - <Link href="/docs/cherrypy">CherryPy</Link>
+         </span>
+                        </div>
+                    </div> */}
+                </div>
+                {/* <li>
+                    <h5 className={styles.subTitle}>Ruby</h5>
+                    <div className={styles.list}>
+                        <li>
+                        <span className={styles.innerListItem}>    
+                        - <Link href="/docs/rubyonrails">Ruby on Rails</Link>
+         </span>
+                        </div>
+                        <li>
+                        <span className={styles.innerListItem}>    
+                        - <Link href="/docs/sinatra">Sinatra</Link>
+         </span>
+                        </div>
+                    </div>
+                </div>
                 <li>
-                    <h5>Python</h5>
-                    <ul>
-                        <li
-                            className={`${styles.listItem} ${
-                                router.query.framework == "angular" &&
-                                styles.active
-                            }`}
-                        >
-                            <Link href="/docs/flask">Flask</Link>
-                        </li>
-                        <li
-                            className={`${styles.listItem} ${
-                                router.query.framework == "angular" &&
-                                styles.active
-                            }`}
-                        >
-                            <Link href="/docs/cherrypy">CherryPy</Link>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h5>Ruby</h5>
-                    <ul>
+                    <h5 className={styles.subTitle}>Java</h5>
+                    <div className={styles.list}>
                         <li>
-                            <Link href="/docs/rubyonrails">Ruby on Rails</Link>
-                        </li>
+                        <span className={styles.innerListItem}>    
+                        - <Link href="/docs/spring">Spring</Link>
+         </span>
+                        </div>
                         <li>
-                            <Link href="/docs/sinatra">Sinatra</Link>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h5>Java</h5>
-                    <ul>
-                        <li>
-                            <Link href="/docs/spring">Spring</Link>
-                        </li>
-                        <li>
-                            <Link href="/docs/struts">Struts</Link>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h4>Both end frameworks:</h4>
-            <ul>
-                <li
+                        <span className={styles.innerListItem}>    
+                        - <Link href="/docs/struts">Struts</Link>
+         </span>
+                        </div>
+                    </div>
+                </div> */}
+            </div>
+            <h4 className={styles.title}>Both end frameworks</h4>
+            <div className={styles.list}>
+                <div
                     className={`${styles.listItem} ${
                         router.query.framework == "next" && styles.active
-                    }`}
-                >
-                    <Link href="/docs/next">Nextjs</Link>
-                </li>
-                <li
+                    }`}>
+                    <span className={styles.innerListItem}>
+                        - <Link href="/docs/next">Nextjs</Link>
+                    </span>
+                </div>
+                <div
                     className={`${styles.listItem} ${
                         router.query.framework == "django" && styles.active
-                    }`}
-                >
-                    <Link href="/docs/django">Django</Link>
-                </li>
-            </ul>
+                    }`}>
+                    <div>- Django</div>
+                    <span className={styles.comingSoon}>coming soon</span>
+                    <span className={styles.innerListItem}>
+                        {/* - <Link href="/docs/django">Django</Link> */}
+                    </span>
+                </div>
+            </div>
         </div>
     );
 };

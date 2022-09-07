@@ -60,24 +60,10 @@ export const sendFileForDownload = async (src, res, cleanup) => {
     return res.end();
 };
 
-export const findPackageDir = (end, lang, fw, specs) => {
-    let path = "";
-    PackagesDirectory.forEach((options) => {
-        let correct = true;
-        if (
-            options.end != end ||
-            options.lang != lang ||
-            options.fw != fw ||
-            options.specs.length != specs.length
-        )
-            correct = false;
-        let specsCorrect = true;
-        options.specs.forEach((spec, i) => {
-            if (spec != specs[i]) specsCorrect = false;
-        });
-        if (correct && specsCorrect) {
-            path = options.path;
-        }
-    });
+export const findPackageDir = (fw, id) => {
+    const _id = id == "null" ? null : id;
+    const path = PackagesDirectory.filter(
+        (_package) => _package.id == _id && _package.fw == fw
+    )[0].path;
     return path;
 };

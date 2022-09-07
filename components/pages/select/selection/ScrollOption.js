@@ -17,6 +17,9 @@ const ScrollOption = (props) => {
             } ${props.selected && styles.selected}`}
             onClick={clickHandler}>
             {props.option.name}
+            {props.option.language != null && (
+                <span> ({props.option.language})</span>
+            )}
             {!props.option.available && !props.isBranchEnd && (
                 <span> - coming soon</span>
             )}

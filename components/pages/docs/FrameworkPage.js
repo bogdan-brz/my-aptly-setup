@@ -1,13 +1,10 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import styles from "./FrameworkPage.module.css";
 import SideBar from "./SideBar";
 import Spec from "./Spec";
-// import MDXRemote from "next-mdx-remote";
 
 const FrameworkPage = (props) => {
     const framework = props.framework;
-    const downloadLinkText = <span></span>;
     return (
         <div className={styles.page}>
             <SideBar />
@@ -16,21 +13,32 @@ const FrameworkPage = (props) => {
                     The {framework.name} Starter Project
                 </h1>
                 <p>{framework.description}</p>
-                <ul>
-                    {framework.descriptionLinks.map((descLink) => (
-                        <li>
-                            <a href={descLink.link}>
-                                {descLink.title} - {descLink.label}
+                <div className={styles.list}>
+                    {framework.descriptionLinks.map((descLink, i) => (
+                        <div className={styles.listItem} key={i}>
+                            {descLink.title} -{" "}
+                            <a className={styles.link} href={descLink.link}>
+                                {descLink.label}
                             </a>
-                        </li>
+                        </div>
                     ))}
-                </ul>
-                <Link href="/select">
-                    <span>Download the {framework.name} setup</span>
+                </div>
+                {/* <Link
+                    href={`/select?end=${
+                        framework.end == "both" ? "together" : framework.end
+                    }fw=${framework.short}`}>
+                    <span className={styles.downloadLink}>
+                        Download the {framework.name} setup
+                    </span>
+                </Link> */}
+                <Link href={"/select"}>
+                    <span className={styles.downloadLink}>
+                        Download the {framework.name} setup
+                    </span>
                 </Link>
-                <h2>Specifics you can add to the above starter project</h2>
-                {framework.specs.map((spec) => (
-                    <Spec spec={spec} />
+                <h2>{framework.name} starter setups to choose from:</h2>
+                {framework.setups.map((spec, i) => (
+                    <Spec spec={spec} key={i} />
                 ))}
             </div>
         </div>

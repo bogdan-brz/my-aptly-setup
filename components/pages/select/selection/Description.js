@@ -13,7 +13,7 @@ const Description = (props) => {
                         {props.toDescribe.description}
                     </p>
                     {props.type == "setup" && (
-                        <div>{props.toDescribe.dependencies}</div>
+                        <div>dependencies: {props.toDescribe.dependencies}</div>
                     )}
                     {props.type == "fw" && (
                         <Link href={`/docs/${props.toDescribe.short}`}>

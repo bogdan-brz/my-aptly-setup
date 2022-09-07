@@ -44,7 +44,7 @@ const selectReducer = (state, action) => {
     } else if (action.type == "front-select-setup") {
         if (
             !_state.frontSelectedSetup ||
-            _state.frontSelectedSetup != action.payload.name
+            _state.frontSelectedSetup.name != action.payload.name
         ) {
             _state.frontSelectedSetup = action.payload;
         } else {
@@ -83,7 +83,7 @@ const selectReducer = (state, action) => {
     } else if (action.type == "back-select-setup") {
         if (
             !_state.backSelectedSetup ||
-            _state.backSelectedSetup != action.payload.name
+            _state.backSelectedSetup.name != action.payload.name
         ) {
             _state.backSelectedSetup = action.payload;
         } else {
@@ -106,7 +106,7 @@ const selectReducer = (state, action) => {
     } else if (action.type == "both-select-setup") {
         if (
             !_state.bothSelectedSetup ||
-            _state.bothSelectedSetup != action.payload.name
+            _state.bothSelectedSetup.name != action.payload.name
         ) {
             _state.bothSelectedSetup = action.payload;
         } else {
@@ -122,17 +122,17 @@ const SelectContext = React.createContext({
     showBoth: false,
     selectedEnd: "",
     frontSelectedFw: null,
-    frontSelectedSetup: [],
+    frontSelectedSetup: null,
     frontFwOptions: [],
     frontSetupOptions: [],
     backSelectedLang: null,
     backSelectedFw: null,
-    backSelectedSetup: [],
+    backSelectedSetup: null,
     backLangOptions: [],
     backFwOptions: [],
     backSetupOptions: [],
     bothSelectedFw: null,
-    bothSelectedSetup: [],
+    bothSelectedSetup: null,
     bothFwOptions: [],
     bothSetupOptions: [],
     dispatchSelect: () => {},
@@ -145,17 +145,17 @@ const SelectContextProvider = (props) => {
         showBack: false,
         showBoth: false,
         frontSelectedFw: null,
-        frontSelectedSetup: [],
+        frontSelectedSetup: null,
         frontFwOptions: props.frontEnd.frameworks,
         frontSetupOptions: [],
         backSelectedLang: null,
         backSelectedFw: null,
-        backSelectedSetup: [],
+        backSelectedSetup: null,
         backLangOptions: props.backEnd.languages,
         backFwOptions: [],
         backSetupOptions: [],
         bothSelectedFw: null,
-        bothSelectedSetup: [],
+        bothSelectedSetup: null,
         bothFwOptions: props.bothEnds.frameworks,
         bothSetupOptions: [],
     });

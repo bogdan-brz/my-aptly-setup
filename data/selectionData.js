@@ -3,6 +3,7 @@ export const SelectionTreeData = {
         frameworks: [
             {
                 name: "ReactJs",
+                end: "front",
                 available: true,
                 short: "react",
                 description:
@@ -14,6 +15,7 @@ export const SelectionTreeData = {
                         description:
                             "simple implementation with a Router, Navbar with Navlinks, and two dummy pages",
                         short: "react-dom-v6",
+                        id: 1,
                     },
                     {
                         name: "basic routing setup with v5",
@@ -21,6 +23,7 @@ export const SelectionTreeData = {
                         description:
                             "simple implementation with a Router, Navbar with Navlinks, and two dummy pages",
                         short: "react-dom-v5",
+                        id: 2,
                     },
                     {
                         name: "a basic redux implementation",
@@ -28,6 +31,7 @@ export const SelectionTreeData = {
                         description:
                             "a redux store, and dummy home page pulling from the store",
                         short: "reg-redux",
+                        id: 3,
                     },
                     {
                         name: "a basic redux toolkit implementation",
@@ -35,16 +39,24 @@ export const SelectionTreeData = {
                         description:
                             "a redux store, and dummy home page pulling from the store",
                         short: "react-redux-toolkit",
+                        id: 4,
                     },
                 ],
             },
             {
                 name: "AngularJs",
+                end: "front",
                 available: true,
                 short: "angular",
                 setups: [],
             },
-            { name: "VueJs", available: true, short: "vue", setups: [] },
+            {
+                name: "VueJs",
+                end: "front",
+                available: true,
+                short: "vue",
+                setups: [],
+            },
         ],
     },
     backEnd: {
@@ -55,6 +67,8 @@ export const SelectionTreeData = {
                 frameworks: [
                     {
                         name: "ExpressJs",
+                        end: "back",
+                        language: "NodeJs",
                         available: true,
                         short: "express",
                         description: `with no specs added it'll be a "Hello World" single GET route server `,
@@ -75,6 +89,7 @@ export const SelectionTreeData = {
                     },
                     {
                         name: "Koa",
+                        end: "back",
                         available: true,
                         short: "koa",
                         setups: [],
@@ -84,8 +99,8 @@ export const SelectionTreeData = {
             {
                 name: "Python",
                 frameworks: [
-                    { name: "Flask", setups: [] },
-                    { name: "CherryPy", setups: [] },
+                    { name: "Flask", setups: [], end: "back" },
+                    { name: "CherryPy", setups: [], end: "back" },
                 ],
                 available: false,
             },
@@ -111,6 +126,7 @@ export const SelectionTreeData = {
         frameworks: [
             {
                 name: "NextJs",
+                end: "both",
                 setups: [
                     {
                         name: "redux store",
@@ -123,7 +139,7 @@ export const SelectionTreeData = {
                 ],
                 available: true,
             },
-            { name: "Django", setups: [], available: false },
+            { name: "Django", setups: [], available: false, end: "both" },
         ],
     },
 };

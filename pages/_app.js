@@ -1,4 +1,4 @@
-import Footer from "../components/layout/Footer";
+// import Footer from "../components/layout/Footer";
 import Main from "../components/layout/Main";
 import Navbar from "../components/layout/Navbar";
 import "../styles/globals.css";
@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
         <Main>
             <Navbar />
             <Component {...pageProps} />
-            <Footer />
+            {/* <Footer /> */}
         </Main>
     );
 }
