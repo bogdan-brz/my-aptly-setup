@@ -52,6 +52,15 @@ const selectReducer = (state, action) => {
             );
         } else {
             _state.frontSelectedSpecs.push(action.payload);
+            _state.frontSelectedSpecs = _state.frontSelectedSpecs.filter(
+                (_spec) => {
+                    console.log(_spec.short);
+                    return (
+                        action.payload.incompatibleWith.indexOf(_spec.short) ==
+                        -1
+                    );
+                }
+            );
         }
     } else if (action.type == "back-select-lang") {
         if (
@@ -190,8 +199,7 @@ const SelectContextProvider = (props) => {
                 bothFwOptions: selectState.bothFwOptions,
                 bothSpecOptions: selectState.bothSpecOptions,
                 dispatchSelect: dispatchSelect,
-            }}
-        >
+            }}>
             {props.children}
         </SelectContext.Provider>
     );

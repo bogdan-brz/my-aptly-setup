@@ -1,6 +1,6 @@
 import { SelectContextProvider } from "../components/pages/select/context/select-context";
 import SelectPage from "../components/pages/select/SelectPage";
-import { SelectionTreeData } from "../utils/selectionData";
+import { SelectionTreeData } from "../data/selectionData";
 
 const Selector = (props) => {
     return (

@@ -9,9 +9,22 @@
 
 .navGroup {
     height: 100%;
+    width: 20rem;
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.first {
+    justify-content: flex-start;
+}
+
+.second {
+    justify-content: center;
+}
+
+.third {
+    justify-content: flex-end;
 }
 
 .logoLink {

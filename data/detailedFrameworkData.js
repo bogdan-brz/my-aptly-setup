@@ -18,10 +18,10 @@ export const FrameworkDetails = [
         ],
         specs: [
             {
-                name: "react-router-dom",
+                name: "react-router-dom-v6",
                 description:
                     "The App.js file has the BrowserRouter component added to it, wrapping ...",
-                short: "react-dom",
+                short: "react-dom-v6",
             },
             {
                 name: "redux",

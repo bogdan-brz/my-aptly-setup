@@ -6,10 +6,12 @@ const Navbar = () => {
     const router = useRouter();
     return (
         <div className={styles.navbar}>
-            <Link href="/">
-                <a className={styles.logoLink}>AptlySetup</a>
-            </Link>
-            <div className={styles.navGroup}>
+            <div className={styles.navGroup + " " + styles.first}>
+                <Link href="/">
+                    <a className={styles.logoLink}>AptlySetup</a>
+                </Link>
+            </div>
+            <div className={styles.navGroup + " " + styles.second}>
                 <Link href="/">
                     <a
                         className={`${styles.link} ${
@@ -42,8 +44,8 @@ const Navbar = () => {
                     </a>
                 </Link>
             </div>
-            <div>
-                <Link href="/signup">
+            <div className={styles.navGroup + " " + styles.third}>
+                {/* <Link href="/signup">
                     <a
                         className={`${styles.link} ${
                             router.pathname.startsWith("/signup")
@@ -63,6 +65,17 @@ const Navbar = () => {
                         }`}
                     >
                         Login
+                    </a>
+                </Link> */}
+                <Link href="/contact">
+                    <a
+                        className={`${styles.link} ${
+                            router.pathname.startsWith("/contact")
+                                ? styles.active
+                                : ""
+                        }`}
+                    >
+                        Contact Us
                     </a>
                 </Link>
             </div>
