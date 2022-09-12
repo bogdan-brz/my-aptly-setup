@@ -9,16 +9,10 @@ const BackEnd = () => {
         <div className={styles.end}>
             <h3 className={styles.title}>Backend:</h3>
             <Selection
-                labels={["Language", "lang", "", "back"]}
-                options={ctx.backLangOptions}
-                isBranchEnd={false}
-                onSelect={ctx.dispatchSelect}
-                selected={ctx.backSelectedLang}
-            />
-            <Selection
-                labels={["Framework", "fw", "a language", "back"]}
+                labels={["Framework", "fw", "", "back"]}
                 options={ctx.backFwOptions}
                 isBranchEnd={false}
+                widden={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.backSelectedFw}
             />
@@ -26,6 +20,7 @@ const BackEnd = () => {
                 labels={["Setups", "setup", "a framework", "back"]}
                 options={ctx.backSetupOptions}
                 isBranchEnd={true}
+                widden={true}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.backSelectedSetup}
             />

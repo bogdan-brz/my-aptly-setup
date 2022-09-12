@@ -2,6 +2,25 @@ import React, { useReducer } from "react";
 
 const selectReducer = (state, action) => {
     let _state = { ...state };
+    // if (action.type == "init-select") {
+    //     console.log(action.payload);
+    //     _state.selectedEnd =
+    //         action.payload.end == "both" ? "together" : action.payload.end;
+    //     _state[`${action.payload.end}SelectedFw`] = _state[
+    //         `${action.payload.end}FwOptions`
+    //     ].filter((_opt) => _opt.shortName == action.payload.fw)[0];
+    //     _state[`${action.payload.end}SelectedSetup`] = _state[
+    //         `${action.payload.end}FwOptions`
+    //     ]
+    //         .filter((_opt) => _opt.shortName == action.payload.fw)[0]
+    //         .setups.filter((_stp) => _stp.id == action.payload.setup);
+    //     _state[`${action.payload.end}FwOptions`] =
+    //         _state[`${action.payload.end}SelectedFw`] != null
+    //             ? _state[`${action.payload.end}FwOptions`].filter(
+    //                   (fw) => fw.fullName == _state.frontSelectedFw.fullName
+    //               )[0].setups
+    //             : [];
+    // }
     if (action.type == "end-select") {
         if (_state.selectedEnd != action.payload)
             _state.selectedEnd = action.payload;
@@ -27,63 +46,56 @@ const selectReducer = (state, action) => {
             _state.showBack = false;
             _state.showBoth = false;
         }
+        _state.frontSelectedFw = null;
+        _state.frontSelectedSetup = null;
+        _state.frontSetupOptions = [];
+        _state.backSelectedFw = null;
+        _state.backSelectedSetup = null;
+        _state.backSetupOptions = [];
+        _state.bothSelectedFw = null;
+        _state.bothSelectedSetup = null;
+        _state.bothSetupOptions = [];
     } else if (action.type == "front-select-fw") {
         if (
             !_state.frontSelectedFw ||
-            _state.frontSelectedFw.name != action.payload.name
+            _state.frontSelectedFw.fullName != action.payload.fullName
         ) {
             _state.frontSelectedFw = action.payload;
             _state.frontSetupOptions = _state.frontFwOptions.filter(
-                (fw) => fw.name == _state.frontSelectedFw.name
+                (fw) => fw.fullName == _state.frontSelectedFw.fullName
             )[0].setups;
         } else {
             _state.frontSelectedFw = null;
             _state.frontSetupOptions = [];
         }
-        _state.frontSelectedSet = [];
+        _state.frontSelectedSetup = null;
     } else if (action.type == "front-select-setup") {
         if (
             !_state.frontSelectedSetup ||
-            _state.frontSelectedSetup.name != action.payload.name
+            _state.frontSelectedSetup.fullName != action.payload.fullName
         ) {
             _state.frontSelectedSetup = action.payload;
         } else {
             _state.frontSelectedSetup = null;
         }
-    } else if (action.type == "back-select-lang") {
-        if (
-            !_state.backSelectedLang ||
-            _state.backSelectedLang.name != action.payload.name
-        ) {
-            _state.backSelectedLang = action.payload;
-            _state.backFwOptions = _state.backLangOptions.filter(
-                (lang) => lang.name == _state.backSelectedLang.name
-            )[0].frameworks;
-        } else {
-            _state.backSelectedLang = null;
-            _state.backFwOptions = [];
-        }
-        _state.backSelectedFw = null;
-        _state.backSelectedSetup = [];
-        _state.backSetupOptions = [];
     } else if (action.type == "back-select-fw") {
         if (
             !_state.backSelectedFw ||
-            _state.backSelectedFw.name != action.payload.name
+            _state.backSelectedFw.fullName != action.payload.fullName
         ) {
             _state.backSelectedFw = action.payload;
             _state.backSetupOptions = _state.backFwOptions.filter(
-                (fw) => fw.name == _state.backSelectedFw.name
+                (fw) => fw.fullName == _state.backSelectedFw.fullName
             )[0].setups;
         } else {
             _state.backSelectedFw = null;
             _state.backSetupOptions = [];
         }
-        _state.backSelectedSetup = [];
+        _state.backSelectedSetup = null;
     } else if (action.type == "back-select-setup") {
         if (
             !_state.backSelectedSetup ||
-            _state.backSelectedSetup.name != action.payload.name
+            _state.backSelectedSetup.fullName != action.payload.fullName
         ) {
             _state.backSelectedSetup = action.payload;
         } else {
@@ -92,21 +104,21 @@ const selectReducer = (state, action) => {
     } else if (action.type == "both-select-fw") {
         if (
             !_state.bothSelectedFw ||
-            _state.bothSelectedFw.name != action.payload.name
+            _state.bothSelectedFw.fullName != action.payload.fullName
         ) {
             _state.bothSelectedFw = action.payload;
             _state.bothSetupOptions = _state.bothFwOptions.filter(
-                (fw) => fw.name == _state.bothSelectedFw.name
+                (fw) => fw.fullName == _state.bothSelectedFw.fullName
             )[0].setups;
         } else {
             _state.bothSelectedFw = null;
             _state.bothSetupOptions = [];
         }
-        _state.bothSelectedSetup = [];
+        _state.bothSelectedSetup = null;
     } else if (action.type == "both-select-setup") {
         if (
             !_state.bothSelectedSetup ||
-            _state.bothSelectedSetup.name != action.payload.name
+            _state.bothSelectedSetup.fullName != action.payload.fullName
         ) {
             _state.bothSelectedSetup = action.payload;
         } else {
@@ -125,10 +137,8 @@ const SelectContext = React.createContext({
     frontSelectedSetup: null,
     frontFwOptions: [],
     frontSetupOptions: [],
-    backSelectedLang: null,
     backSelectedFw: null,
     backSelectedSetup: null,
-    backLangOptions: [],
     backFwOptions: [],
     backSetupOptions: [],
     bothSelectedFw: null,
@@ -146,17 +156,15 @@ const SelectContextProvider = (props) => {
         showBoth: false,
         frontSelectedFw: null,
         frontSelectedSetup: null,
-        frontFwOptions: props.frontEnd.frameworks,
+        frontFwOptions: props.frameworks.filter((_fw) => _fw.end == "front"),
         frontSetupOptions: [],
-        backSelectedLang: null,
         backSelectedFw: null,
         backSelectedSetup: null,
-        backLangOptions: props.backEnd.languages,
-        backFwOptions: [],
+        backFwOptions: props.frameworks.filter((_fw) => _fw.end == "back"),
         backSetupOptions: [],
         bothSelectedFw: null,
         bothSelectedSetup: null,
-        bothFwOptions: props.bothEnds.frameworks,
+        bothFwOptions: props.frameworks.filter((_fw) => _fw.end == "both"),
         bothSetupOptions: [],
     });
     return (
@@ -170,10 +178,8 @@ const SelectContextProvider = (props) => {
                 frontSelectedSetup: selectState.frontSelectedSetup,
                 frontFwOptions: selectState.frontFwOptions,
                 frontSetupOptions: selectState.frontSetupOptions,
-                backSelectedLang: selectState.backSelectedLang,
                 backSelectedFw: selectState.backSelectedFw,
                 backSelectedSetup: selectState.backSelectedSetup,
-                backLangOptions: selectState.backLangOptions,
                 backFwOptions: selectState.backFwOptions,
                 backSetupOptions: selectState.backSetupOptions,
                 bothSelectedFw: selectState.bothSelectedFw,

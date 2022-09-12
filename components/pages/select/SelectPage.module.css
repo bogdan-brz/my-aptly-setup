@@ -6,21 +6,25 @@
     padding: 1rem;
 }
 
-/* .label1 {
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin: 1.5rem;
-}
-
-.label2 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
-    margin-bottom: 1rem;
-} */
-
 .label {
     font-size: 1.4rem;
     font-weight: 400;
     margin: 2rem 0 1.5rem 0;
+}
+
+.downloadLink {
+    font-weight: 400;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid grey;
+    transition: 0.3s;
+}
+
+.downloadLink:hover {
+    background-color: rgb(112, 155, 255);
+    /* border: 1px solid yellow; */
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
 }

@@ -1,14 +1,14 @@
 import FrameworkPage from "../../components/pages/docs/FrameworkPage";
-import { FrameworkDetails } from "../../data/documentationData";
+import { frameworkData } from "../../data/frameworkData";
 
 const Framework = (props) => {
     return <FrameworkPage {...props} />;
 };
 
 export const getStaticPaths = () => {
-    const paths = FrameworkDetails.map((fw) => ({
+    const paths = frameworkData.map((fw) => ({
         params: {
-            framework: fw.short,
+            framework: fw.shortName,
         },
     }));
     return { paths, fallback: false };
@@ -16,8 +16,8 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = async (context) => {
     const { params } = context;
-    const framework = FrameworkDetails.filter(
-        (fw) => fw.short == params.framework
+    const framework = frameworkData.filter(
+        (fw) => fw.shortName == params.framework
     )[0];
     return { props: { framework } };
 };

@@ -4,13 +4,14 @@ import ScrollOption from "./ScrollOption";
 const Scroll = (props) => {
     return (
         <div>
-            <div className={styles.scroll}>
+            <div
+                className={styles.scroll + " " + (props.widden && styles.wide)}>
                 {props.options.map((option, i) => (
                     <ScrollOption
                         labels={props.labels}
                         selected={
                             props.selected != null &&
-                            props.selected.name == option.name
+                            props.selected.fullName == option.fullName
                         }
                         isBranchEnd={props.isBranchEnd}
                         onSelect={props.onSelect}

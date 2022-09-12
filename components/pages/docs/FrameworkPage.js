@@ -10,13 +10,13 @@ const FrameworkPage = (props) => {
             <SideBar />
             <div className={styles.content}>
                 <h1 className={styles.title}>
-                    The {framework.name} Starter Project
+                    The {framework.fullName} Starter Project
                 </h1>
                 <p>{framework.description}</p>
                 <div className={styles.list}>
                     {framework.descriptionLinks.map((descLink, i) => (
                         <div className={styles.listItem} key={i}>
-                            {descLink.title} -{" "}
+                            * {descLink.title} -{" "}
                             <a className={styles.link} href={descLink.link}>
                                 {descLink.label}
                             </a>
@@ -33,12 +33,17 @@ const FrameworkPage = (props) => {
                 </Link> */}
                 <Link href={"/select"}>
                     <span className={styles.downloadLink}>
-                        Download the {framework.name} setup
+                        Choose your {framework.fullName} setup
                     </span>
                 </Link>
                 <h2>{framework.name} starter setups to choose from:</h2>
                 {framework.setups.map((spec, i) => (
-                    <Spec spec={spec} key={i} />
+                    <Spec
+                        end={framework.end}
+                        fw={framework.shortName}
+                        spec={spec}
+                        key={i}
+                    />
                 ))}
             </div>
         </div>

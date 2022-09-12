@@ -61,9 +61,7 @@ export const sendFileForDownload = async (src, res, cleanup) => {
 };
 
 export const findPackageDir = (fw, id) => {
-    const _id = id == "null" ? null : id;
-    const path = PackagesDirectory.filter(
-        (_package) => _package.id == _id && _package.fw == fw
-    )[0].path;
+    const path = PackagesDirectory.filter((_package) => _package.id == id)[0]
+        .path;
     return path;
 };

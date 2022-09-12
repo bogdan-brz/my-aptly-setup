@@ -9,6 +9,10 @@
     font-weight: 300;
 }
 
+.unwide {
+    width: 29rem;
+}
+
 .container.showBorder {
     border-right: 3px solid rgb(200, 200, 200);
 }
@@ -24,4 +28,10 @@
 
 .listEl {
     margin: 0;
+}
+
+.link {
+    color: rgb(71, 71, 187);
+    text-decoration: underline;
+    cursor: pointer;
 }

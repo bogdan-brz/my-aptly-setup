@@ -13,12 +13,12 @@ const Selection = (props) => {
                     options={props.options}
                     selected={props.selected}
                     labels={props.labels}
+                    widden={props.widden}
                 />
                 <Description
+                    widden={props.widden}
                     type={props.labels[1]}
-                    somethingSelected={
-                        props.isBranchEnd && props.selected != null
-                    }
+                    somethingSelected={props.selected != null}
                     isBranchEnd={props.isBranchEnd}
                     toDescribe={props.selected}
                 />

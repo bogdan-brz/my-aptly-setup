@@ -1,6 +1,6 @@
 import { SelectContextProvider } from "../components/pages/select/context/select-context";
 import SelectPage from "../components/pages/select/SelectPage";
-import { SelectionTreeData } from "../data/selectionData";
+import { frameworkData } from "../data/frameworkData";
 
 const Selector = (props) => {
     return (
@@ -13,7 +13,7 @@ const Selector = (props) => {
 export const getStaticProps = () => {
     return {
         props: {
-            ...SelectionTreeData,
+            frameworks: frameworkData,
         },
     };
 };

@@ -12,13 +12,15 @@ const BothEnds = () => {
                 labels={["Framework", "fw", "", "both"]}
                 options={ctx.bothFwOptions}
                 isBranchEnd={false}
+                widden={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.bothSelectedFw}
             />
             <Selection
-                labels={["Setups", "setup", "", "both"]}
+                labels={["Setups", "setup", "a framework", "both"]}
                 options={ctx.bothSetupOptions}
                 isBranchEnd={true}
+                widden={true}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.bothSelectedSetup}
             />

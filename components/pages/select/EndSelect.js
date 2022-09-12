@@ -30,8 +30,7 @@ const EndSelect = () => {
                             ctx.selectedEnd == "front"
                                 ? styles.selected
                                 : ctx.selectedEnd != "" && styles.notselected
-                        }`}
-                    >
+                        }`}>
                         frontend only
                     </button>
                     <span className={styles.description}>ex. ReactJs</span>
@@ -43,11 +42,10 @@ const EndSelect = () => {
                             ctx.selectedEnd == "back"
                                 ? styles.selected
                                 : ctx.selectedEnd != "" && styles.notselected
-                        }`}
-                    >
+                        }`}>
                         backend only
                     </button>
-                    <span className={styles.description}>ex. NodeJs</span>
+                    <span className={styles.description}>ex. ExpressJs</span>
                 </div>
                 <div className={styles.option}>
                     <h3
@@ -56,8 +54,7 @@ const EndSelect = () => {
                             ctx.selectedEnd != "together" &&
                             ctx.selectedEnd != "" &&
                             styles.notselected
-                        }`}
-                    >
+                        }`}>
                         both ends as...
                     </h3>
                     <Arrows2 selected={ctx.selectedEnd} />
@@ -70,8 +67,7 @@ const EndSelect = () => {
                                         ? styles.selected
                                         : ctx.selectedEnd != "" &&
                                           styles.notselected
-                                }`}
-                            >
+                                }`}>
                                 separate frameworks
                             </button>
                             <span className={styles.description}>
@@ -86,8 +82,7 @@ const EndSelect = () => {
                                         ? styles.selected
                                         : ctx.selectedEnd != "" &&
                                           styles.notselected
-                                }`}
-                            >
+                                }`}>
                                 one framework
                             </button>
                             <span className={styles.description}>

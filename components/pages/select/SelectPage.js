@@ -2,64 +2,105 @@
 import { useContext } from "react"; // , useEffect
 import SelectContext from "./context/select-context";
 import EndSelect from "./EndSelect";
-import SearchBar from "./searchbar/SearchBar";
+// import SearchBar from "./searchbar/SearchBar";
 import styles from "./SelectPage.module.css";
 import SelectTree from "./tree/SelectTree";
 
-const SelectPage = (props) => {
+const SelectPage = () => {
     const ctx = useContext(SelectContext);
     // const router = useRouter();
+    // console.log(router);
     // useEffect(() => {
-    //     console.log(router.query);
-    //     const end = router.query.end;
-    //     let fw = null;
-    //     if (end == "front")
-    //         fw = props.frontEnd.frameworks.filter(
-    //             (_fw) => _fw.short == router.query.fw
-    //         );
-    //     if (end == "back") {
-    //         if (router.query.fw == "express")
-    //             fw = props.backEnd.languages[0].frameworks[0];
-    //         if (router.query.fw == "koa")
-    //             fw = props.backEnd.languages[0].frameworks[1];
+    //     if (router.query.end != null) {
+    //         ctx.dispatchSelect({
+    //             type: "end-select",
+    //             payload: router.query.end,
+    //         });
     //     }
-    //     if (end == "both")
-    //         fw = props.bothEnd.frameworks.filter(
-    //             (_fw) => _fw.short == router.query.fw
-    //         );
-    //     const setup = fw.setups.filter(
-    //         (_set) => _set.id == router.query.setup
-    //     )[0];
-    //     ctx.dispatchSelect({
-    //         type: "end-select",
-    //         payload: end,
-    //     });
-    //     ctx.dispatchSelect({
-    //         type: "end-select",
-    //         payload: end,
-    //     });
+    //     if (router.query.fw != null && router.query.end != null) {
+    //         ctx.dispatchSelect({
+    //             type: `${router.query.end}-fw-select`,
+    //             payload: router.query.fw,
+    //         });
+    //     }
+    //     if (
+    //         router.query.setup != null &&
+    //         router.query.end != null &&
+    //         router.query.fw != null
+    //     ) {
+    //         ctx.dispatchSelect({
+    //             type: `${router.query.end}-setup-select`,
+    //             payload: router.query.setup,
+    //         });
+    //     }
     // }, []);
     return (
         <div className={styles.page}>
-            <SearchBar />
+            {/* <SearchBar />
             <label className={styles.label}>
                 ... or use the following chart
-            </label>
+            </label> */}
             <EndSelect />
             <SelectTree />
-            {ctx.showFront && ctx.frontSelectedFw != null && (
+            {ctx.selectedEnd == "front" && ctx.frontSelectedSetup != null && (
                 <a
-                    href={`/api/download?fwshort=${
-                        ctx.frontSelectedFw.short
-                    }&setupid=${
+                    href={`/api/download?setupid=${
                         ctx.frontSelectedSetup != null
                             ? ctx.frontSelectedSetup.id
                             : null
                     }`}>
-                    download
+                    <h3 className={styles.downloadLink}>download setup</h3>
                 </a>
             )}
-            {/* <a href={`/api/${download}?end=${""}`}></a> */}
+            {ctx.selectedEnd == "back" && ctx.backSelectedSetup != null && (
+                <a
+                    href={`/api/download?setupid=${
+                        ctx.backSelectedSetup != null
+                            ? ctx.backSelectedSetup.id
+                            : null
+                    }`}>
+                    <h3 className={styles.downloadLink}>download setup</h3>
+                </a>
+            )}
+            {ctx.selectedEnd == "together" && ctx.bothSelectedSetup != null && (
+                <a
+                    href={`/api/download?setupid=${
+                        ctx.bothSelectedSetup != null
+                            ? ctx.bothSelectedSetup.id
+                            : null
+                    }`}>
+                    <h3 className={styles.downloadLink}>download setup</h3>
+                </a>
+            )}
+            {ctx.selectedEnd == "separate" && (
+                <div className={styles.explanation}>
+                    <span className={styles.important}>
+                        Important - after download
+                    </span>{" "}
+                    In order to properly connect your selected frontend and
+                    backend you need your backend to act as a proxy server. For
+                    that you need to go into your front end folder, and in the
+                    package.json file add a "proxy" value with the key of your
+                    backend url, which is "http://localhost:8080"
+                    <img src="/proxy_setup_screenshot.png" />
+                </div>
+            )}
+            {ctx.selectedEnd == "separate" &&
+                ctx.frontSelectedSetup != null &&
+                ctx.backSelectedSetup != null && (
+                    <a
+                        href={`/api/download?separate=true&setupid1=${
+                            ctx.bothSelectedSetup != null
+                                ? ctx.bothSelectedSetup.id
+                                : null
+                        }&setupid2=${
+                            ctx.bothSelectedSetup != null
+                                ? ctx.bothSelectedSetup.id
+                                : null
+                        }`}>
+                        <h3 className={styles.downloadLink}>download setup</h3>
+                    </a>
+                )}
         </div>
     );
 };

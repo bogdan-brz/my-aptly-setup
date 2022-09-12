@@ -16,7 +16,7 @@ const ScrollOption = (props) => {
                 styles.unavailable
             } ${props.selected && styles.selected}`}
             onClick={clickHandler}>
-            {props.option.name}
+            {props.option.fullName}
             {props.option.language != null && (
                 <span> ({props.option.language})</span>
             )}

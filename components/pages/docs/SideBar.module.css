@@ -4,7 +4,12 @@
     margin-right: 5rem;
 }
 
-.list {
+.listLvl1 {
+    margin: 0.6rem;
+}
+
+.listLvl2 {
+    margin: 0.6rem;
 }
 
 .title {
@@ -31,24 +36,26 @@
 
 .listItem {
     font-weight: 400;
-    color: grey;
-    margin: 0.7rem;
-    margin-left: 0.9rem;
-}
-
-.innerListItem {
     color: rgb(45, 45, 45);
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
 }
 
 .active {
     font-weight: 700;
 }
 
-.comingSoon {
+.comingSoon,
+.csSign {
     color: grey;
     font-weight: 200;
 }
 
-.langList {
-    margin: 0.6rem;
+.listItem .csSign {
+    margin-left: 0.6rem;
 }
+
+/* .csSign {
+    color: grey;
+    font-weight: 200;
+} */

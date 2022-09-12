@@ -7,72 +7,70 @@ const SideBar = () => {
     return (
         <div className={styles.sidebar}>
             <h4 className={styles.title}>Front end frameworks</h4>
-            <div className={styles.list}>
+            <div className={styles.listLvl1}>
                 <div
                     className={`${styles.listItem} ${
                         router.query.framework == "react" && styles.active
                     }`}>
-                    <span className={styles.innerListItem}>
+                    <div>
                         - <Link href="/docs/react">Reactjs</Link>
-                    </span>
+                    </div>
                 </div>
                 <div
                     className={`${styles.listItem} ${
                         router.query.framework == "angular" && styles.active
                     }`}>
-                    <span className={styles.innerListItem}>
-                        - <Link href="/docs/angular">Angularjs</Link>
-                    </span>
+                    <div className={styles.comingSoon}>
+                        {/* - <Link href="/docs/angular">Angularjs</Link> */}-
+                        AngularJs
+                    </div>
+                    <div className={styles.csSign}>coming soon</div>
                 </div>
-                <div
+                {/* <div
                     className={`${styles.listItem} ${
                         router.query.framework == "vue" && styles.active
                     }`}>
-                    <span className={styles.innerListItem}>
+                    <div>
                         - <Link href="/docs/vue">Vuejs</Link>
-                    </span>
-                </div>
+                    </div>
+                </div> */}
             </div>
             <h4 className={styles.title}>Back end frameworks</h4>
-            <div className={styles.list}>
-                <div className={styles.langList}>
-                    <h5 className={styles.subTitle}>Nodejs</h5>
-                    <div className={styles.list}>
-                        <div
-                            className={`${styles.listItem} ${
-                                router.query.framework == "angular" &&
-                                styles.active
-                            }`}>
-                            <span className={styles.innerListItem}>
-                                - <Link href="/docs/express">ExpressJs</Link>
-                            </span>
-                        </div>
-                        <div
-                            className={`${styles.listItem} ${
-                                router.query.framework == "angular" &&
-                                styles.active
-                            }`}>
-                            <span className={styles.innerListItem}>
-                                - <Link href="/docs/koa">Koa</Link>
-                            </span>
+            <div className={styles.listLvl1}>
+                <h5 className={styles.subTitle}>Nodejs</h5>
+                <div className={styles.listLvl2}>
+                    <div
+                        className={`${styles.listItem} ${
+                            router.query.framework == "express" && styles.active
+                        }`}>
+                        <div>
+                            - <Link href="/docs/express">ExpressJs</Link>
                         </div>
                     </div>
+                    <div
+                        className={`${styles.listItem} ${
+                            router.query.framework == "koa" && styles.active
+                        }`}>
+                        <div className={styles.comingSoon}>
+                            {/* - <Link href="/docs/koa">Koa</Link> */}- Koa
+                        </div>
+                        <div className={styles.csSign}>coming soon</div>
+                    </div>
                 </div>
-                <div className={styles.langList}>
-                    <h5 className={styles.subTitle + " " + styles.comingSoon}>
-                        Python
-                    </h5>
-                    <span className={styles.comingSoon}>coming soon</span>
-                    {/* <div className={styles.list}>
+                <h5 className={styles.subTitle + " " + styles.comingSoon}>
+                    Python
+                </h5>
+                <div className={styles.csSign}>coming soon</div>
+                {/* <div className={styles.listLvl2}>
                         <li
                             className={`${styles.listItem} ${
                                 router.query.framework == "angular" &&
                                 styles.active
                             }`}
                         >
-                        <span className={styles.innerListItem}>    
+                        <div>    
                         - <Link href="/docs/flask">Flask</Link>
-         </span>
+         </div>
                         </div>
                         <li
                             className={`${styles.listItem} ${
@@ -80,24 +78,23 @@ const SideBar = () => {
                                 styles.active
                             }`}
                         >
-                        <span className={styles.innerListItem}>    
+                        <div>    
                         - <Link href="/docs/cherrypy">CherryPy</Link>
-         </span>
+         </div>
                         </div>
                     </div> */}
-                </div>
                 {/* <li>
                     <h5 className={styles.subTitle}>Ruby</h5>
                     <div className={styles.list}>
                         <li>
-                        <span className={styles.innerListItem}>    
+                        <div>    
                         - <Link href="/docs/rubyonrails">Ruby on Rails</Link>
-         </span>
+         </div>
                         </div>
                         <li>
-                        <span className={styles.innerListItem}>    
+                        <div>    
                         - <Link href="/docs/sinatra">Sinatra</Link>
-         </span>
+         </div>
                         </div>
                     </div>
                 </div>
@@ -105,37 +102,35 @@ const SideBar = () => {
                     <h5 className={styles.subTitle}>Java</h5>
                     <div className={styles.list}>
                         <li>
-                        <span className={styles.innerListItem}>    
+                        <div>    
                         - <Link href="/docs/spring">Spring</Link>
-         </span>
+         </div>
                         </div>
                         <li>
-                        <span className={styles.innerListItem}>    
+                        <div>    
                         - <Link href="/docs/struts">Struts</Link>
-         </span>
+         </div>
                         </div>
                     </div>
                 </div> */}
             </div>
             <h4 className={styles.title}>Both end frameworks</h4>
-            <div className={styles.list}>
+            <div className={styles.listLvl1}>
                 <div
                     className={`${styles.listItem} ${
                         router.query.framework == "next" && styles.active
                     }`}>
-                    <span className={styles.innerListItem}>
+                    <div>
                         - <Link href="/docs/next">Nextjs</Link>
-                    </span>
+                    </div>
                 </div>
                 <div
                     className={`${styles.listItem} ${
                         router.query.framework == "django" && styles.active
                     }`}>
-                    <div>- Django</div>
-                    <span className={styles.comingSoon}>coming soon</span>
-                    <span className={styles.innerListItem}>
-                        {/* - <Link href="/docs/django">Django</Link> */}
-                    </span>
+                    <div className={styles.comingSoon}>- Django</div>
+                    <div className={styles.csSign}>coming soon</div>
+                    <div>{/* - <Link href="/docs/django">Django</Link> */}</div>
                 </div>
             </div>
         </div>

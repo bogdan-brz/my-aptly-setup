@@ -33,3 +33,10 @@
     font-size: 0.95rem;
     color: grey;
 }
+
+.link {
+    color: rgb(74, 74, 233);
+    font-size: 0.9rem;
+    margin-left: 1.4rem;
+    text-decoration: underline;
+}

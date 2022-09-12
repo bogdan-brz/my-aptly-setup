@@ -12,12 +12,14 @@ const FrontEnd = () => {
                 labels={["Framework", "fw", "", "front"]}
                 options={ctx.frontFwOptions}
                 isBranchEnd={false}
+                widden={false}
                 onSelect={ctx.dispatchSelect}
                 selected={ctx.frontSelectedFw}
             />
             <Selection
                 title={"Setups"}
                 labels={["Setups", "setup", "a framework", "front"]}
+                widden={true}
                 options={ctx.frontSetupOptions}
                 isBranchEnd={true}
                 onSelect={ctx.dispatchSelect}
