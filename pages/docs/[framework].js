@@ -6,7 +6,8 @@ const Framework = (props) => {
 };
 
 export const getStaticPaths = () => {
-    const paths = frameworkData.map((fw) => ({
+    const availableFws = frameworkData.filter((fw) => fw.available);
+    const paths = availableFws.map((fw) => ({
         params: {
             framework: fw.shortName,
         },
