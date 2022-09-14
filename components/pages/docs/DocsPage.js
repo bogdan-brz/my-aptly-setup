@@ -12,15 +12,16 @@ const DocsPage = () => {
                     In this documentation you will find descriptions of the
                     different setups we provide for each framework.
                 </p>
-                <div>
+                <div className={styles.gitLink}>
                     Here is our github repository with all of our setups
                     (without the descriptions you can find here):
+                    <br />
+                    <Link href="https://github.com/bogdanbrz/apty-setup">
+                        <span className={styles.link}>
+                            https://github.com/bogdanbrz/apty-setup
+                        </span>
+                    </Link>
                 </div>
-                <Link href="https://github.com/bogdanbrz/apty-setup">
-                    <span className={styles.link}>
-                        https://github.com/bogdanbrz/apty-setup
-                    </span>
-                </Link>
                 <h3 className={styles.subTitle}>Get Started</h3>
                 <div className={styles.secondParagraph}>
                     <h5 className={styles.listItem}>1.</h5>

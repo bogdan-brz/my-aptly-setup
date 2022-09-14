@@ -45,3 +45,39 @@
 .notselected {
     border-top: 4px dotted rgb(188, 188, 188);
 }
+
+@media (max-width: 900px) {
+    .a1 {
+        left: 4%;
+    }
+    .a2 {
+        left: 24%;
+    }
+    .a3 {
+        left: 63%;
+    }
+    .a4 {
+        left: 24%;
+    }
+    .a5 {
+        left: 76%;
+    }
+}
+
+@media (max-width: 560px) {
+    .a1 {
+        left: 6%;
+    }
+    .a2 {
+        left: 25%;
+    }
+    .a3 {
+        left: 67%;
+    }
+    .a4 {
+        left: 22%;
+    }
+    .a5 {
+        left: 72%;
+    }
+}

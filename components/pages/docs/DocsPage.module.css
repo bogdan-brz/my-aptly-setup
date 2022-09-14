@@ -40,3 +40,10 @@
 .link:hover {
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .content {
+        width: fit-content;
+        font-size: 0.9rem;
+    }
+}

@@ -13,3 +13,9 @@
     font-weight: 300;
     margin: 3rem;
 }
+
+@media (max-width: 900px) {
+    .title {
+        margin: 2rem 1rem 2rem 1rem;
+    }
+}

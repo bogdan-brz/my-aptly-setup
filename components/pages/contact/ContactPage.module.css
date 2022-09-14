@@ -59,3 +59,12 @@
     cursor: pointer;
     color: rgb(255, 255, 255);
 }
+
+@media (max-width: 900px) {
+    .form {
+        width: 90%;
+    }
+    .title {
+        margin: 2rem 1rem 2rem 1rem;
+    }
+}

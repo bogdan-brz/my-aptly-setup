@@ -59,3 +59,9 @@
     color: rgb(49, 49, 49);
     font-size: 0.9rem;
 }
+
+@media (max-width: 900px) {
+    .form {
+        width: 90%;
+    }
+}

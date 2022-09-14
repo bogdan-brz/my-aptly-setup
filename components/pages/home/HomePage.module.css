@@ -124,3 +124,41 @@
     border-radius: 2px;
     width: 230px;
 }
+
+@media (max-width: 960px) {
+    .comparisonBlock {
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+    }
+    .linkBlock {
+        width: fit-content;
+    }
+    .p1 {
+        width: fit-content;
+    }
+    .p2 {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .page {
+        padding: 1rem 0 1rem 0;
+    }
+    .title {
+        padding: 0.5rem 3rem 0.5rem 3rem;
+        font-size: 1.9rem;
+        margin: 1rem 0 1.5rem 0;
+    }
+    .subtitle {
+        font-size: 1.5rem;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .p1 {
+        margin: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .p2 {
+        width: fit-content;
+    }
+}

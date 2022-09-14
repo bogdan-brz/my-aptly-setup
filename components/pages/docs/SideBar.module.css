@@ -55,7 +55,21 @@
     margin-left: 0.6rem;
 }
 
-/* .csSign {
-    color: grey;
-    font-weight: 200;
-} */
+@media (max-width: 500px) {
+    .sidebar {
+        margin-right: 1rem;
+        width: fit-content;
+    }
+    .title {
+        font-size: 1rem;
+    }
+    .subTitle {
+        font-size: 0.9rem;
+    }
+    .listLvl1 {
+        margin: 0.3rem;
+    }
+    .listLvl2 {
+        margin: 0.3rem;
+    }
+}
