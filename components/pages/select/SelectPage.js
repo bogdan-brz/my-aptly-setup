@@ -5,6 +5,7 @@ import EndSelect from "./EndSelect";
 // import SearchBar from "./searchbar/SearchBar";
 import styles from "./SelectPage.module.css";
 import SelectTree from "./tree/SelectTree";
+import Image from "next/image";
 
 const SelectPage = () => {
     const ctx = useContext(SelectContext);
@@ -93,17 +94,25 @@ const SelectPage = () => {
                     <span className={styles.important}>
                         Important - after download:
                     </span>
-                    <br />
-                    In order to properly connect your selected frontend and
-                    backend you need your backend to act as a proxy server. For
-                    that you need to go into your front end folder, and in the
-                    package.json file add a "proxy" value with the key of your
-                    backend url, which is "http://localhost:8080"
-                    <br />
-                    <img
+                    <div className={styles.explanationP}>
+                        In order to properly connect your selected frontend and
+                        backend you need your backend to act as a proxy server.
+                        For that you need to go into your front end folder, and
+                        in the package.json file add a "proxy" value with the
+                        key of your backend url, which is
+                        "http://localhost:8080"
+                    </div>
+                    {/* <img
                         className={styles.image}
                         src="/proxy_setup_screenshot.png"
                         alt="image showing how to add proxy to package.json"
+                    /> */}
+                    <Image
+                        src="/proxy_setup_screenshot.png"
+                        alt="image showing how to add proxy to package.json"
+                        width={320}
+                        height={44}
+                        layout="fixed"
                     />
                 </div>
             )}

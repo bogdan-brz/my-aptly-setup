@@ -20,8 +20,8 @@ const Spec = (props) => {
             )}
             {spec.description.links.length != 0 && (
                 <div className={styles.linkList}>
-                    {spec.description.links.map((link) => (
-                        <a className={styles.link} href={link.link}>
+                    {spec.description.links.map((link, i) => (
+                        <a key={i} className={styles.link} href={link.link}>
                             {link.title}
                         </a>
                     ))}

@@ -1,5 +1,6 @@
 import styles from "./HomePage.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const HomePage = () => {
     return (
@@ -17,10 +18,17 @@ const HomePage = () => {
             </div>
             <div className={styles.comparisonBlock}>
                 <div>
-                    <img
+                    {/* <img
                         src="/too_many_dependencies.png"
                         alt="too many dependencies exmaple"
                         className={styles.image}
+                    /> */}
+                    <Image
+                        src="/too_many_dependencies.png"
+                        alt="too many dependencies exmaple"
+                        width={320}
+                        height={192}
+                        layout="fixed"
                     />
                     <span className={styles.cross1}></span>
                     <span className={styles.cross2}></span>
@@ -31,10 +39,18 @@ const HomePage = () => {
                     development to create a community of learners.
                 </p>
                 <div>
-                    <img
+                    {/* <img
                         src="/right_dependencies.png"
                         alt="right amount of dependencies example"
                         className={styles.image}
+                    /> */}
+                    <Image
+                        className={styles.image}
+                        src="/right_dependencies.png"
+                        alt="right amount of dependencies example"
+                        width={320}
+                        height={192}
+                        layout="fixed"
                     />
                     <span className={styles.check1}></span>
                     <span className={styles.check2}></span>
