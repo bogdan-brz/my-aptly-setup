@@ -26,6 +26,10 @@
     text-decoration: underline;
 }
 
+.link:hover {
+    cursor: pointer;
+}
+
 .downloadLink {
     font-size: 1.1rem;
     text-decoration: underline;

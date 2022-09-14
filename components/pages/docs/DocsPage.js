@@ -1,5 +1,6 @@
 import styles from "./DocsPage.module.css";
 import SideBar from "./SideBar";
+import Link from "next/link";
 
 const DocsPage = () => {
     return (
@@ -11,6 +12,15 @@ const DocsPage = () => {
                     In this documentation you will find descriptions of the
                     different setups we provide for each framework.
                 </p>
+                <div>
+                    Here is our github repository with all of our setups
+                    (without the descriptions you can find here):
+                </div>
+                <Link href="https://github.com/bogdanbrz/apty-setup">
+                    <span className={styles.link}>
+                        https://github.com/bogdanbrz/apty-setup
+                    </span>
+                </Link>
                 <h3 className={styles.subTitle}>Get Started</h3>
                 <div className={styles.secondParagraph}>
                     <h5 className={styles.listItem}>1.</h5>
@@ -45,10 +55,19 @@ const DocsPage = () => {
                         unsure how to start it, go to the{" "}
                         <span>package.json</span> file and look for{" "}
                         <span>dev</span> or <span>start</span> under{" "}
-                        <span>scripts</span>)
+                        <span>scripts</span>) (once again, for a both front and
+                        back end setup, you need to run the start command on
+                        both ends)
                     </div>
                 </div>
-                {/* <h3>Contribute</h3> */}
+                <h3>Contribute</h3>
+                <div>
+                    If you have a setup or starter project that you think could
+                    be of use to others, share it with us{" "}
+                    <Link href="/contribute">
+                        <span className={styles.link}>here</span>
+                    </Link>
+                </div>
             </div>
         </div>
     );

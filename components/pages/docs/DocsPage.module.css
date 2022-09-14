@@ -31,3 +31,12 @@
     font-weight: 300;
     line-height: 1.4rem;
 }
+
+.link {
+    color: rgb(74, 74, 233);
+    text-decoration: underline;
+}
+
+.link:hover {
+    cursor: pointer;
+}

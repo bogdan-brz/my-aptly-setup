@@ -71,7 +71,7 @@ const EndSelect = () => {
                                 separate frameworks
                             </button>
                             <span className={styles.description}>
-                                ex. ReactJs front + NodeJs back
+                                ex. ReactJs front + ExpressJs back
                             </span>
                         </div>
                         <div className={styles.option}>

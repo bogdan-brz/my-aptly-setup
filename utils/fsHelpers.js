@@ -3,6 +3,26 @@ import { PackagesDirectory } from "../data/packagesDirectory";
 const archiver = require("archiver");
 const fs = require("fs");
 
+export const makeDir = async (src) => {
+    await new Promise((resolve, reject) => {
+        fs.mkdir(src, { recursive: true }, (err) => {
+            if (err) console.log("error" + err);
+            else resolve();
+        });
+    });
+    return;
+};
+
+export const renameDir = async (src, newSrc) => {
+    await new Promise((resolve, reject) => {
+        fs.rename(src, newSrc, (err) => {
+            if (err) console.log("error" + err);
+            else resolve();
+        });
+    });
+    return;
+};
+
 export const copyDir = async (src, dest) => {
     await new Promise((resolve, reject) => {
         fs.cp(src, dest, { recursive: true }, (err) => {
@@ -60,8 +80,14 @@ export const sendFileForDownload = async (src, res, cleanup) => {
     return res.end();
 };
 
-export const findPackageDir = (fw, id) => {
+export const findPackageDir = (id) => {
     const path = PackagesDirectory.filter((_package) => _package.id == id)[0]
         .path;
     return path;
+};
+
+export const findFolderDir = (id) => {
+    const dir = PackagesDirectory.filter((_package) => _package.id == id)[0]
+        .dir;
+    return dir;
 };

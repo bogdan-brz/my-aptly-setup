@@ -72,35 +72,41 @@ const SelectPage = () => {
                     <h3 className={styles.downloadLink}>download setup</h3>
                 </a>
             )}
-            {ctx.selectedEnd == "separate" && (
-                <div className={styles.explanation}>
-                    <span className={styles.important}>
-                        Important - after download
-                    </span>{" "}
-                    In order to properly connect your selected frontend and
-                    backend you need your backend to act as a proxy server. For
-                    that you need to go into your front end folder, and in the
-                    package.json file add a "proxy" value with the key of your
-                    backend url, which is "http://localhost:8080"
-                    <img src="/proxy_setup_screenshot.png" />
-                </div>
-            )}
             {ctx.selectedEnd == "separate" &&
                 ctx.frontSelectedSetup != null &&
                 ctx.backSelectedSetup != null && (
                     <a
                         href={`/api/download?separate=true&setupid1=${
-                            ctx.bothSelectedSetup != null
-                                ? ctx.bothSelectedSetup.id
+                            ctx.frontSelectedSetup != null
+                                ? ctx.frontSelectedSetup.id
                                 : null
                         }&setupid2=${
-                            ctx.bothSelectedSetup != null
-                                ? ctx.bothSelectedSetup.id
+                            ctx.backSelectedSetup != null
+                                ? ctx.backSelectedSetup.id
                                 : null
                         }`}>
                         <h3 className={styles.downloadLink}>download setup</h3>
                     </a>
                 )}
+            {ctx.selectedEnd == "separate" && (
+                <div className={styles.explanation}>
+                    <span className={styles.important}>
+                        Important - after download:
+                    </span>
+                    <br />
+                    In order to properly connect your selected frontend and
+                    backend you need your backend to act as a proxy server. For
+                    that you need to go into your front end folder, and in the
+                    package.json file add a "proxy" value with the key of your
+                    backend url, which is "http://localhost:8080"
+                    <br />
+                    <img
+                        className={styles.image}
+                        src="/proxy_setup_screenshot.png"
+                        alt="image showing how to add proxy to package.json"
+                    />
+                </div>
+            )}
         </div>
     );
 };

@@ -16,8 +16,7 @@ const Navbar = () => {
                     <a
                         className={`${styles.link} ${
                             router.pathname == "/" ? styles.active : ""
-                        }`}
-                    >
+                        }`}>
                         Home
                     </a>
                 </Link>
@@ -27,8 +26,7 @@ const Navbar = () => {
                             router.pathname.startsWith("/select")
                                 ? styles.active
                                 : ""
-                        }`}
-                    >
+                        }`}>
                         Select
                     </a>
                 </Link>
@@ -38,8 +36,7 @@ const Navbar = () => {
                             router.pathname.startsWith("/docs")
                                 ? styles.active
                                 : ""
-                        }`}
-                    >
+                        }`}>
                         Docs
                     </a>
                 </Link>
@@ -67,14 +64,23 @@ const Navbar = () => {
                         Login
                     </a>
                 </Link> */}
+                <Link href="/contribute">
+                    <a
+                        className={`${styles.link} ${
+                            router.pathname.startsWith("/contribute")
+                                ? styles.active
+                                : ""
+                        }`}>
+                        Contribute
+                    </a>
+                </Link>
                 <Link href="/contact">
                     <a
                         className={`${styles.link} ${
                             router.pathname.startsWith("/contact")
                                 ? styles.active
                                 : ""
-                        }`}
-                    >
+                        }`}>
                         Contact Us
                     </a>
                 </Link>
