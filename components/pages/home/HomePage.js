@@ -10,11 +10,11 @@ const HomePage = () => {
                 Simple and approachable web development project setups
             </h3>
             <div className={styles.p1}>
-                A huge wall of dependencies isn't a friendly sight for someone
-                trying to learn a web development framework from a starter
-                project. It too isn't great for someone who wants to get going
-                with a project quickly without visiting countless documentation
-                pages on alien dependencies.
+                A huge wall of dependencies isn&apos;t a friendly sight for
+                someone trying to learn a web development framework from a
+                starter project. It too isn&apos;t great for someone who wants
+                to get going with a project quickly without visiting countless
+                documentation pages on alien dependencies.
             </div>
             <div className={styles.comparisonBlock}>
                 <div>
