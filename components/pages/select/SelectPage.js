@@ -1,40 +1,12 @@
-// import { useRouter } from "next/router";
-import { useContext } from "react"; // , useEffect
+import { useContext } from "react";
 import SelectContext from "./context/select-context";
 import EndSelect from "./EndSelect";
-// import SearchBar from "./searchbar/SearchBar";
 import styles from "./SelectPage.module.css";
 import SelectTree from "./tree/SelectTree";
 import Image from "next/image";
 
 const SelectPage = () => {
     const ctx = useContext(SelectContext);
-    // const router = useRouter();
-    // console.log(router);
-    // useEffect(() => {
-    //     if (router.query.end != null) {
-    //         ctx.dispatchSelect({
-    //             type: "end-select",
-    //             payload: router.query.end,
-    //         });
-    //     }
-    //     if (router.query.fw != null && router.query.end != null) {
-    //         ctx.dispatchSelect({
-    //             type: `${router.query.end}-fw-select`,
-    //             payload: router.query.fw,
-    //         });
-    //     }
-    //     if (
-    //         router.query.setup != null &&
-    //         router.query.end != null &&
-    //         router.query.fw != null
-    //     ) {
-    //         ctx.dispatchSelect({
-    //             type: `${router.query.end}-setup-select`,
-    //             payload: router.query.setup,
-    //         });
-    //     }
-    // }, []);
     return (
         <div className={styles.page}>
             {/* <SearchBar />
@@ -98,15 +70,10 @@ const SelectPage = () => {
                         In order to properly connect your selected frontend and
                         backend you need your backend to act as a proxy server.
                         For that you need to go into your front end folder, and
-                        in the package.json file add a "proxy" value with the
-                        key of your backend url, which is
-                        "http://localhost:8080"
+                        in the package.json file add a &quot;proxy&quot; value
+                        with the key of your backend url, which is
+                        &quot;http://localhost:8080&quot;
                     </div>
-                    {/* <img
-                        className={styles.image}
-                        src="/proxy_setup_screenshot.png"
-                        alt="image showing how to add proxy to package.json"
-                    /> */}
                     <Image
                         src="/proxy_setup_screenshot.png"
                         alt="image showing how to add proxy to package.json"

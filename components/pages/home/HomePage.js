@@ -18,11 +18,6 @@ const HomePage = () => {
             </div>
             <div className={styles.comparisonBlock}>
                 <div>
-                    {/* <img
-                        src="/too_many_dependencies.png"
-                        alt="too many dependencies exmaple"
-                        className={styles.image}
-                    /> */}
                     <Image
                         src="/too_many_dependencies.png"
                         alt="too many dependencies exmaple"
@@ -39,11 +34,6 @@ const HomePage = () => {
                     development to create a community of learners.
                 </p>
                 <div>
-                    {/* <img
-                        src="/right_dependencies.png"
-                        alt="right amount of dependencies example"
-                        className={styles.image}
-                    /> */}
                     <Image
                         className={styles.image}
                         src="/right_dependencies.png"
