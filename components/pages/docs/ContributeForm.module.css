@@ -1,0 +1,67 @@
+.form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 5px solid rgb(27, 79, 222);
+    background-color: rgb(249, 250, 255);
+    box-shadow: 10px 10px 10px grey;
+    border-radius: 2rem;
+}
+
+.shortInput,
+.longInput {
+    width: 100%;
+    border: 1px solid rgb(106, 106, 106);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+}
+
+.link {
+    color: rgb(74, 74, 233);
+    text-decoration: underline;
+}
+
+.label {
+    margin-top: 0.45rem;
+    margin-bottom: 0.1rem;
+    color: rgb(37, 37, 37);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.submitBtn {
+    margin-top: 1rem;
+    font-weight: 400;
+    padding: 0.7rem 1.8rem 0.7rem 1.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid grey;
+    transition: 0.3s;
+    background-color: white;
+}
+
+.submitBtn:hover {
+    background-color: rgb(112, 155, 255);
+    /* border: 1px solid yellow; */
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.contactText {
+    margin-left: auto;
+    color: rgb(49, 49, 49);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .form {
+        width: 90%;
+    }
+}

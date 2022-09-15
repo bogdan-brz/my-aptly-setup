@@ -1,0 +1,75 @@
+.sidebar {
+    width: 12rem;
+    margin-top: 0.5rem;
+    margin-right: 5rem;
+}
+
+.listLvl1 {
+    margin: 0.6rem;
+}
+
+.listLvl2 {
+    margin: 0.6rem;
+}
+
+.title {
+    margin: 0;
+    margin-top: 1.4rem;
+    font-weight: 200;
+    font-size: 1.2rem;
+    border-top: 1px solid rgb(182, 182, 182);
+    padding-top: 1rem;
+    /* text-decoration: underline;
+    text-decoration-thickness: 1px; */
+}
+
+.title:nth-of-type(1) {
+    padding-top: 0;
+    border: 0;
+}
+
+.subTitle {
+    margin: 0;
+    font-weight: 200;
+    font-size: 1.1rem;
+}
+
+.listItem {
+    font-weight: 400;
+    color: rgb(45, 45, 45);
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.active {
+    font-weight: 700;
+}
+
+.comingSoon,
+.csSign {
+    color: grey;
+    font-weight: 200;
+}
+
+.listItem .csSign {
+    margin-left: 0.6rem;
+}
+
+@media (max-width: 500px) {
+    .sidebar {
+        margin-right: 1rem;
+        width: fit-content;
+    }
+    .title {
+        font-size: 1rem;
+    }
+    .subTitle {
+        font-size: 0.9rem;
+    }
+    .listLvl1 {
+        margin: 0.3rem;
+    }
+    .listLvl2 {
+        margin: 0.3rem;
+    }
+}

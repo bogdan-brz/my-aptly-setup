@@ -1,0 +1,164 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 7rem);
+}
+
+.title {
+    margin: 4rem;
+    background-color: rgb(27, 79, 222);
+    color: white;
+    padding: 1rem 5rem 1rem 5rem;
+    border-radius: 2.5rem;
+}
+
+.subTitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    background-color: rgb(238, 243, 255);
+    color: rgb(54, 69, 142);
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.p1 {
+    width: 58rem;
+    margin: 3rem;
+    font-size: 1.2rem;
+    font-weight: 200;
+    line-height: 1.6rem;
+}
+
+.p2 {
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-weight: 200;
+    line-height: 1.8rem;
+}
+
+.comparisonBlock {
+    width: 60rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.linkBlock {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    width: 60rem;
+}
+
+.image {
+    width: 20rem;
+    height: 12rem;
+}
+
+.link {
+    color: rgb(74, 74, 233);
+    text-decoration: underline;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.sectionTitle {
+    background-color: rgb(238, 243, 255);
+    color: rgb(54, 69, 142);
+    padding: 0.5rem;
+    margin-top: 3rem;
+}
+
+.sectionP {
+    margin-left: 0.3rem;
+}
+
+.cross1 {
+    display: block;
+    position: relative;
+    top: -100px;
+    left: 10px;
+    transform: rotate(30deg);
+    background-color: rgba(255, 0, 0, 0.411);
+    height: 4px;
+    border-radius: 2px;
+    width: 300px;
+}
+
+.cross2 {
+    display: block;
+    position: relative;
+    top: -102px;
+    left: 10px;
+    transform: rotate(-30deg);
+    background-color: rgba(255, 0, 0, 0.411);
+    height: 4px;
+    border-radius: 2px;
+    width: 300px;
+}
+
+.check1 {
+    display: block;
+    position: relative;
+    top: -48px;
+    left: 49px;
+    transform: rotate(45deg);
+    background-color: rgba(17, 255, 0, 0.411);
+    height: 4px;
+    border-radius: 2px;
+    width: 80px;
+}
+
+.check2 {
+    display: block;
+    position: relative;
+    top: -105px;
+    left: 80px;
+    transform: rotate(-45deg);
+    background-color: rgba(17, 255, 0, 0.411);
+    height: 4px;
+    border-radius: 2px;
+    width: 230px;
+}
+
+@media (max-width: 960px) {
+    .comparisonBlock {
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+    }
+    .linkBlock {
+        width: fit-content;
+    }
+    .p1 {
+        width: fit-content;
+    }
+    .p2 {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .page {
+        padding: 1rem 0 1rem 0;
+    }
+    .title {
+        padding: 0.5rem 3rem 0.5rem 3rem;
+        font-size: 1.9rem;
+        margin: 1rem 0 1.5rem 0;
+    }
+    .subtitle {
+        font-size: 1.5rem;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .p1 {
+        margin: 1rem 0.5rem 1rem 0.5rem;
+    }
+    .p2 {
+        width: fit-content;
+    }
+}

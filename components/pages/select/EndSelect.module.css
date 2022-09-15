@@ -1,0 +1,109 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.title {
+    /* color: rgb(54, 54, 54); */
+    color: rgb(54, 69, 142);
+    background-color: rgb(238, 243, 255);
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    width: 100%;
+    color: rgb(54, 69, 142);
+    margin: 1.1rem 0 1.1rem 0;
+    background-color: rgb(238, 243, 255);
+    text-align: center;
+    padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.subtitle.notselected {
+    background-color: rgb(232, 232, 232);
+    color: rgb(118, 118, 118);
+    border: 1px solid transparent;
+}
+
+.tree {
+    display: flex;
+    flex-direction: row;
+}
+
+.subtree {
+    display: flex;
+    flex-direction: row;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    background-color: white;
+    border: 1px solid rgb(186, 196, 215);
+    border-radius: 0.4rem;
+    background-color: rgb(238, 243, 255);
+    color: rgb(54, 54, 54);
+    font-size: 1.2rem;
+    font-weight: 100;
+    padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+    margin: 1rem;
+    width: 12rem;
+    margin-bottom: 0.25rem;
+    transition: 0.3s;
+}
+
+.button:hover,
+.button.notselected:hover {
+    background-color: rgb(112, 155, 255);
+    border: 1px solid yellow;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.selected {
+    background-color: rgb(99, 146, 255);
+    color: rgb(237, 237, 237);
+    border: 1px solid rgb(32, 114, 255);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.button.notselected {
+    background-color: rgb(227, 227, 227);
+    color: rgb(124, 124, 124);
+    border: 1px solid rgb(218, 218, 218);
+}
+
+.description {
+    font-size: 0.9rem;
+    color: rgb(36, 36, 36);
+}
+
+@media (max-width: 900px) {
+    .button {
+        margin: 1rem 0.5rem 1rem 0.5rem;
+        font-size: 0.9rem;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 560px) {
+    .button {
+        margin: 1rem 0.1rem 1rem 0.1rem;
+    }
+    .title,
+    .subtitle {
+        padding: 0.4rem 0.2rem 0.4rem 0.2rem;
+    }
+}

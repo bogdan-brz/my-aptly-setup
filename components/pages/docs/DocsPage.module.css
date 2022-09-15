@@ -1,0 +1,49 @@
+.page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 7rem);
+    padding: 1rem;
+}
+
+.content {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.firstParagraph {
+    line-height: 1.5rem;
+}
+
+.listItem {
+    margin: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.itemText {
+    /* margin-left: 1rem; */
+    margin-bottom: 1rem;
+    font-weight: 300;
+    line-height: 1.4rem;
+}
+
+.link {
+    color: rgb(74, 74, 233);
+    text-decoration: underline;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .content {
+        width: fit-content;
+        font-size: 0.9rem;
+    }
+}
