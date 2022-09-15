@@ -15,7 +15,6 @@ const handler = async (req, res) => {
         if (setupid1 == null || setupid2 == null) return res.redirect("/");
         const frontPath = findFolderDir(setupid1);
         const backPath = findFolderDir(setupid2);
-        console.log(frontPath, backPath);
         await makeDir(`./public/package_upload/prep_area/${rand}/YourSetup`);
         await copyDir(
             frontPath,
