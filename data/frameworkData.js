@@ -21,16 +21,17 @@ export const frameworkData = [
         setups: [
             {
                 fullName: "Blank ReactJs setup",
+                shortName: "react-blank",
                 description: {
                     brief: "A create-react-app blank setup with all the icon links cleared out and the App.css file replaced with the App.module.css",
                     full: "A create-react-app blank setup with all the icon links cleared out and the App.css file replaced with the App.module.css. To apply your favicon instead of ours, simply replace the file in the public directory with your icon file",
                     dependencies: "Create-React-App dependencies",
                     links: [],
                 },
-                id: 0,
             },
             {
                 fullName: "Simple routing setup with react-router-dom(v6)",
+                shortName: "react-with-react-router-dom-v6",
                 description: {
                     brief: "Simple react-router-dom(v6) implementation with a Router, Navbar with Navlinks, and two dummy pages",
                     full: "Simple implementation of react-router-dom(v6) with a Router in the App component, Navbar with Navlinks, and two dummy pages. The Navbar highlights the selected tab using isActive in className",
@@ -42,11 +43,11 @@ export const frameworkData = [
                         },
                     ],
                 },
-                id: 1,
             },
             {
                 fullName:
                     "Simple @reduxjs/toolkit redux store with two state slices",
+                shortName: "react-with-react-redux-reduxjs-toolkit",
                 description: {
                     brief: "Simple implementation of @reduxjs/toolkit, with a store with two state slices, and a dummy page accessing state from the slice",
                     full: "Simple implementation of @reduxjs/toolkit, with a store with two state slices, and a dummy page accessing state from the slice",
@@ -58,7 +59,6 @@ export const frameworkData = [
                         },
                     ],
                 },
-                id: 2,
             },
             // react hook form
         ],
@@ -97,16 +97,17 @@ export const frameworkData = [
         setups: [
             {
                 fullName: "Blank ExpressJs setup",
+                shortName: "express-blank",
                 description: {
                     brief: 'Simple ExpressJs server with a "Hello World" get route, cors middleware, and nodemon',
                     full: 'Simple ExpressJs server with a "Hello World" get route, a basic cors middleware implementation, and nodemon to restart the development server on every change made in any file',
                     dependencies: "express, cors, nodemon",
                     links: [],
                 },
-                id: 3,
             },
             {
                 fullName: "Mongodb implementation with mongoose in ExpressJs",
+                shortName: "express-with-mongodb",
                 description: {
                     brief: "Connection to DB established, demonstration of finding and adding elements to a model, and basic schema setup",
                     full: "This setup demonstrates connecting to mongodb via mongoose, setting up a basic schema, and using that schema to find and add elements to the DB via a mongoose model",
@@ -122,10 +123,10 @@ export const frameworkData = [
                         },
                     ],
                 },
-                id: 4,
             },
             {
                 fullName: "JsonWebToken implementation with ExpressJs",
+                shortName: "express-with-jwt",
                 description: {
                     brief: "jwt signing, verifying, and application in middleware that reads token from header",
                     full: "The implementation demonstrated how to sign data with a secret, verify it, and how to create a middleware function to check if there exists a header with the authentication key containing the token",
@@ -141,7 +142,6 @@ export const frameworkData = [
                         },
                     ],
                 },
-                id: 5,
             },
         ],
         language: "NodeJs",
@@ -158,7 +158,7 @@ export const frameworkData = [
         fullName: "NextJs",
         shortName: "next",
         available: true,
-        end: "both",
+        end: "both-t",
         description:
             "All the NextJs setups are based on the Create-Next-App setup, and all the dependencies listed are ones not already included in the blank project.",
         descriptionLinks: [
@@ -172,16 +172,17 @@ export const frameworkData = [
             {
                 fullName:
                     "Blank NextJs app - slightly modified Create-Next-App setup",
+                shortName: "next-blank",
                 description: {
                     brief: "A slightly modified Create-Next-App setup, with the home page cleared up",
                     full: "This setup is almost the same as the Create-Next-App one, except the home page, and the /api route are empty.",
                     dependencies: "Create-Next-App dependencies",
                     links: [],
                 },
-                id: 6,
             },
             {
                 fullName: "A simple mongodb implementation in NextJs",
+                shortName: "next-with-mongodb",
                 description: {
                     brief: "Mongodb connection established, simple implementation of inserting and finding documents from the db.",
                     full: "This implementation shows how to connect to mongodb, and how to find and insert documents into it",
@@ -197,6 +198,7 @@ export const frameworkData = [
             },
             {
                 fullName: "A simple NextAuth implementation in NextJs",
+                shortName: "next-with-next-auth",
                 description: {
                     brief: "Simple setup of the nextauth library with the google oauth provider and utilizing the usesession hook",
                     full: "This setup shows how to setup the nextauth library with the google provider, and then use the session object on the front end with the useSession hook",
@@ -216,8 +218,21 @@ export const frameworkData = [
         fullName: "Django",
         shortName: "django",
         available: false,
-        end: "both",
+        end: "both-t",
         setups: [],
-        language: "Python",
+    },
+    {
+        fullName: "MERN Stack",
+        shortName: "mern",
+        available: true,
+        end: "both-s",
+        setups: [],
+    },
+    {
+        fullName: "MEAN Stack",
+        shortName: "mean",
+        available: false,
+        end: "both-s",
+        setups: [],
     },
 ];

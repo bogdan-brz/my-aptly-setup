@@ -13,10 +13,10 @@ const EndSelect = () => {
         ctx.dispatchSelect({ type: "end-select", payload: "back" });
     };
     const separateClickHandler = () => {
-        ctx.dispatchSelect({ type: "end-select", payload: "separate" });
+        ctx.dispatchSelect({ type: "end-select", payload: "both-s" });
     };
     const togetherClickHandler = () => {
-        ctx.dispatchSelect({ type: "end-select", payload: "together" });
+        ctx.dispatchSelect({ type: "end-select", payload: "both-t" });
     };
     return (
         <div className={styles.container}>
@@ -50,8 +50,8 @@ const EndSelect = () => {
                 <div className={styles.option}>
                     <h3
                         className={`${styles.subtitle} ${
-                            ctx.selectedEnd != "separate" &&
-                            ctx.selectedEnd != "together" &&
+                            ctx.selectedEnd != "both-s" &&
+                            ctx.selectedEnd != "both-t" &&
                             ctx.selectedEnd != "" &&
                             styles.notselected
                         }`}>
@@ -63,7 +63,7 @@ const EndSelect = () => {
                             <button
                                 onClick={separateClickHandler}
                                 className={`${styles.button} ${
-                                    ctx.selectedEnd == "separate"
+                                    ctx.selectedEnd == "both-s"
                                         ? styles.selected
                                         : ctx.selectedEnd != "" &&
                                           styles.notselected
@@ -71,14 +71,14 @@ const EndSelect = () => {
                                 separate frameworks
                             </button>
                             <span className={styles.description}>
-                                ex. ReactJs front + ExpressJs back
+                                ex. MEAN stack
                             </span>
                         </div>
                         <div className={styles.option}>
                             <button
                                 onClick={togetherClickHandler}
                                 className={`${styles.button} ${
-                                    ctx.selectedEnd == "together"
+                                    ctx.selectedEnd == "both-t"
                                         ? styles.selected
                                         : ctx.selectedEnd != "" &&
                                           styles.notselected
